@@ -1,0 +1,331 @@
+:root {
+    --bg: black;
+    --border: hsl(0, 0%, 11%);
+    --text: hsl(0, 0%, 95%);
+    --muted: hsl(0, 0%, 73%);
+    --cyan: hsl(180, 100%, 74%);
+    --gold: hsl(45, 91%, 62%);
+    --radius: 14px;
+    --max: 980px;
+    --shadow: 0 10px 25px hsla(0, 0%, 0%, 0.35);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.65;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background:
+        radial-gradient(700px 500px at 12% 14%, hsla(186, 100%, 50%, 0.12), transparent 60%),
+        radial-gradient(650px 450px at 88% 22%, hsla(45, 91%, 62%, 0.1), transparent 60%);
+    z-index: -1;
+}
+
+.container {
+    max-width: var(--max);
+    margin: 0 auto;
+    padding: 0 18px;
+}
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: hsla(0, 0%, 0%, 0.82);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 0;
+}
+
+.brand {
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+    color: var(--gold);
+    font-weight: 700;
+    font-size: x-large;
+    letter-spacing: 0.2px;
+    transition: color 140ms ease;
+}
+
+.brand:hover {
+    color: var(--cyan);
+}
+
+.brand:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 10px;
+}
+
+.brand small {
+    font-size: medium;
+    color: var(--muted);
+    font-weight: 400;
+    margin-top: 4px;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--muted);
+    padding: 8px 10px;
+    border-radius: 10px;
+    border: 1px solid transparent;
+    transition: background 140ms ease, border-color 140ms ease, color 140ms ease, transform 140ms ease;
+}
+
+nav a:hover {
+    color: var(--text);
+    background: hsla(0, 0%, 100%, 0.04);
+    border-color: hsla(0, 0%, 100%, 0.1);
+    transform: translateY(-1px);
+}
+
+nav a:focus-visible {
+    outline: 2px solid var(--cyan);
+    outline-offset: 2px;
+}
+
+main {
+    padding: 26px 0 52px;
+}
+
+section {
+    padding: 26px 0;
+}
+
+h1,
+h2,
+h3 {
+    margin: 0 0 10px;
+}
+
+h2 {
+    font-size: 20px;
+    letter-spacing: 0.2px;
+    color: var(--gold);
+}
+
+h3 {
+    color: var(--cyan);
+}
+
+.card {
+    background: hsla(0, 0%, 5%, 0.94);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 18px;
+}
+
+.muted {
+    color: var(--muted);
+}
+
+p {
+    margin: 0 0 10px;
+}
+
+.hero h1 {
+    font-size: 34px;
+    letter-spacing: 0.2px;
+}
+
+.hero .subtitle {
+    max-width: 72ch;
+    color: var(--muted);
+    margin-bottom: 0;
+}
+
+.cta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: var(--text);
+    padding: 10px 12px;
+    border-radius: 12px;
+    border: 1px solid hsla(0, 0%, 100%, 0.12);
+    background: hsla(0, 0%, 100%, 0.04);
+    transition: background 140ms ease, border-color 140ms ease, transform 140ms ease;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: hsla(0, 0%, 100%, 0.06);
+    border-color: hsla(0, 0%, 100%, 0.18);
+    transform: translateY(-1px);
+}
+
+.btn.primary {
+    border-color: hsla(186, 100%, 50%, 0.45);
+    background: hsla(186, 100%, 50%, 0.08);
+}
+
+.btn.primary:hover {
+    border-color: hsla(186, 100%, 50%, 0.65);
+    background: hsla(186, 100%, 50%, 0.12);
+}
+
+.btn.secondary {
+    border-color: hsla(45, 91%, 62%, 0.28);
+    background: hsla(45, 91%, 62%, 0.06);
+}
+
+.btn.secondary:hover {
+    border-color: hsla(45, 91%, 62%, 0.55);
+    background: hsla(45, 91%, 62%, 0.10);
+}
+
+.btn:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 2px;
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+@media (min-width: 860px) {
+    .grid-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--muted);
+}
+
+li {
+    margin: 6px 0;
+}
+
+.projects {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+@media (min-width: 720px) {
+    .projects {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+.project {
+    background: hsla(0, 0%, 5%, 0.94);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.tag {
+    font-size: 12px;
+    color: var(--muted);
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid hsla(0, 0%, 100%, 0.12);
+    background: hsla(0, 0%, 100%, 0.03);
+}
+
+.project-links {
+    margin-top: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.link {
+    text-decoration: none;
+    padding: 9px 11px;
+    border-radius: 12px;
+    border: 1px solid hsla(186, 100%, 50%, 0.25);
+    background: hsla(186, 100%, 50%, 0.06);
+    color: var(--text);
+    transition: transform 140ms ease, border-color 140ms ease, background 140ms ease;
+    cursor: pointer;
+}
+
+.link:hover {
+    transform: translateY(-1px);
+    border-color: hsla(186, 100%, 50%, 0.55);
+    background: hsla(186, 100%, 50%, 0.1);
+}
+
+.link.secondary {
+    border-color: hsla(45, 91%, 62%, 0.24);
+    background: hsla(45, 91%, 62%, 0.06);
+}
+
+.link.secondary:hover {
+    border-color: hsla(45, 91%, 62%, 0.5);
+    background: hsla(45, 91%, 62%, 0.1);
+}
+
+.contact a {
+    color: var(--cyan);
+    text-decoration: none;
+    border-bottom: 1px solid hsla(186, 100%, 50%, 0.35);
+    padding-bottom: 1px;
+    transition: color 140ms ease, border-color 140ms ease;
+}
+
+.contact a:hover {
+    color: var(--gold);
+    border-bottom-color: hsla(45, 91%, 62%, 0.55);
+}
+
+footer {
+    border-top: 1px solid var(--border);
+    padding: 18px 0;
+    text-align: center;
+    color: var(--muted);
+    background: hsla(0, 0%, 0%, 0.65);
+}

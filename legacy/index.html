@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SeptBuilds (Sapto's Portfolio)</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="nav">
+                <a class="brand" href="#top">
+                    Saptaparno Chakraborty
+                    <small>AKA: Sapto</small>
+                </a>
+
+                <nav>
+                    <a href="#about">About</a>
+                    <a href="#skills">Skills</a>
+                    <a href="#projects">Projects</a>
+                    <a href="#contact">Contact</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="hero" id="top">
+            <div class="card">
+                <h1>Hey! I'm Saptaparno Chakraborty >:D</h1>
+                <p class="subtitle">
+                    Aspiring Software Engineer | Tech Enthusiast | CS Undergrad | Game Dev Hobbyist
+                </p>
+
+                <div class="cta">
+                    <a class="btn primary" href="#projects">View Projects</a>
+                    <a class="btn secondary" href="../assets/SaptaparnoChakrabortyCV.pdf"
+                        download="SaptaparnoChakrabortyCV.pdf">CV</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <h2>About</h2>
+            <div class="card">
+                <p class="muted">
+                    I am a Computer Science undergraduate and an aspiring Software Engineer who loves building things, be it
+                    full-stack web apps, backend systems, or performance-focused C++ tools.
+                </p>
+                <p class="muted">
+                    I like staying stack-agnostic and learning whatever a project demands: web today, desktop app dev
+                    (C++ Qt, Electron.js) tomorrow, mobile dev as I grow, and game development on the side because it
+                    blends my love for programming & building things with my love for video games.
+                </p>
+                <p class="muted">
+                    I'm excited to keep exploring deeper areas of tech as well, including low-level development with C++
+                    and OpenGL, systems programming, and eventually machine learning projects as I expand my toolkit.
+                </p>
+                <p class="muted">
+                    Outside of projects, I'm big on tech exploration: Arch Linux, Vim motions, and going down rabbit
+                    holes on tools, systems, and new tech.
+                </p>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Core</h3>
+                    <ul>
+                        <li><b>Languages:</b> C++, C, JavaScript, TypeScript, Java, Python, HTML5, CSS3</li>
+                        <li><b>Frameworks/Libraries:</b> Node.js, Express, Tailwind CSS, React, Redux, Qt (learning)</li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <h3>Data and Tools</h3>
+                    <ul>
+                        <li><b>Databases:</b> MySQL, SQLite, MongoDB, PostgreSQL</li>
+                        <li><b>Tools & Platforms:</b> Git, GitHub, Postman, Vim Motions, Linux (Arch btw), Docker (learning)</li>
+                        <li><b>Cloud:</b> AWS (learning)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Major Projects</h2>
+            <div class="projects">
+                <article class="project">
+                    <h3>WorkshopHub</h3>
+                    <p class="muted">
+                        Workshop management platform with registrations, attendance, materials, feedback, and
+                        certificates.
+                    </p>
+                    <div>
+                        <span class="tag">Full-Stack Web App</span>
+                        <span class="tag">MERN</span>
+                        <span class="tag">JWT</span>
+                        <span class="tag">bcrypt</span>
+                    </div>
+                    <div class="project-links">
+                        <a class="link" href="https://github.com/schak04/workshophub" target="_blank"
+                            rel="noopener noreferrer">GitHub</a>
+                        <a class="link secondary">Live demo soon</a>
+                    </div>
+                </article>
+                <article class="project">
+                    <h3>Priorify</h3>
+                    <p class="muted">
+                        Priority-based task manager. Base version (v1.0.0) released. Console-first app. GUI version
+                        planned using Qt.
+                    </p>
+                    <div>
+                        <span class="tag">Desktop App</span>
+                        <span class="tag">C++</span>
+                        <span class="tag">STL</span>
+                        <span class="tag">SQLite</span>
+                    </div>
+                    <div class="project-links">
+                        <a class="link" href="https://github.com/schak04/priorify" target="_blank"
+                           rel="noopener noreferrer">GitHub</a>
+                        <a class="link secondary">GUI soon</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact</h2>
+            <div class="card contact">
+                <p class="muted">
+                    <b>Email:</b> <a href="mailto:schakraborty1086@gmail.com">schakraborty1086@gmail.com</a><br />
+                    <b>GitHub:</b> <a href="https://github.com/schak04" target="_blank"
+                                      rel="noopener noreferrer">github.com/schak04</a><br />
+                    <b>LinkedIn:</b> <a href="https://www.linkedin.com/in/schak04/" target="_blank"
+                                        rel="noopener noreferrer">linkedin.com/in/schak04</a>
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        &copy; <span id="year"></span> Saptaparno Chakraborty
+    </footer>
+
+    <script>
+        const startYear = 2026;
+        const currentYear = new Date().getFullYear();
+        document.getElementById("year").textContent = currentYear === startYear ? startYear : `${startYear}-${currentYear}`;
+    </script>
+</body>
+
+</html>
