@@ -71,7 +71,7 @@ const App = () => {
                             onClick={() => setActiveWindow('terminal')}
                             className='btn btn-secondary text-xs'
                         >
-                            Return to kitty
+                            Return to the terminal
                         </button>
                     </div>
                 );
@@ -84,8 +84,7 @@ const App = () => {
                 <div className='absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-arch-blue/20 rounded-full blur-[120px] animate-pulse' />
                 <div className='absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-600/20 rounded-full blur-[120px]' />
                 <div className='absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-blue-400/10 rounded-full blur-[100px]' />
-
-                <div className='absolute inset-0 bg-[linear-gradient(to_right,#8888880a_1px,transparent_1px),linear-gradient(to_bottom,#8888880a_1px,transparent_1px)] bg-[size:40px_40px]' />
+                <div className='absolute inset-0 bg-[linear-gradient(to_right,#8888880a_1px,transparent_1px),linear-gradient(to_bottom,#8888880a_1px,transparent_1px)] bg-size[40px_40px]' />
             </div>
 
             <AnimatePresence>
