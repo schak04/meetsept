@@ -1,0 +1,200 @@
+[
+    {
+        "id": "septcrawler",
+        "title": "SeptCrawler",
+        "description": "Upcoming. My own search engine. Currently planning, researching, and working on designing its architecture.",
+        "tags": [
+            "Search Engine",
+            "Backend Systems Project",
+            "Low-Level",
+            "C++",
+            "Node.js",
+            "Currently being planned",
+            "Upcoming"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/septcrawler",
+            "demo": null
+        }
+    },
+    {
+        "id": "workshophub",
+        "title": "WorkshopHub",
+        "description": "Ongoing. Workshop management platform with registrations, attendance, materials, feedback, and certificates.",
+        "tags": [
+            "Full-Stack Web App",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Mongoose",
+            "JWT",
+            "bcrypt",
+            "React.js",
+            "Tailwind CSS"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/workshophub",
+            "demo": null
+        }
+    },
+    {
+        "id": "priorify",
+        "title": "Priorify",
+        "description": "Priority-based task manager. Base version (v1.0.0) released. Console-first app. GUI version planned using Qt.",
+        "tags": [
+            "Desktop App",
+            "C++",
+            "STL",
+            "SQLite"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/priorify",
+            "demo": null
+        }
+    },
+    {
+        "id": "url-shortener",
+        "title": "URL Shortener",
+        "description": "A lightweight URL shortening service built using Node.js, Express, MongoDB, and Mongoose.",
+        "tags": [
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Mongoose"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/url-shortener",
+            "demo": null
+        }
+    },
+    {
+        "id": "mydayoff",
+        "title": "MyDayOff",
+        "description": "a full-stack HR workflow simulation for managing employee (and manager) leave and reimbursement requests and approvals.",
+        "tags": [
+            "MERN",
+            "JWT",
+            "bcrypt"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/mydayoff",
+            "demo": null
+        }
+    },
+    {
+        "id": "fintracker",
+        "title": "FinTracker",
+        "description": "A personal finance tracker app that lets users manage their income and expenses.",
+        "tags": [
+            "React.js",
+            "Firebase",
+            "Recharts"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/fintracker",
+            "demo": null
+        }
+
+    },
+    {
+        "id": "karaoke-app",
+        "title": "Karaoke App",
+        "description": "A console karaoke app that fetches lyrics from the Genius API, downloads song audio from YouTube using yt-dlp, and displays colour-highlighted lyrics in real-time.",
+        "tags": [
+            "Python",
+            "FFmpeg",
+            "yt-dlp",
+            "pygame",
+            "mutagen"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/karaoke-app",
+            "demo": null
+        }
+    },
+    {
+        "id": "survivors-clone",
+        "title": "Survivors (Clone)",
+        "description": "Learning game development by making a Vampire Survivors clone in Godot. Work in progress.",
+        "tags": [
+            "GDScript",
+            "Godot",
+            "game dev"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/survivors-clone",
+            "demo": null
+        }
+    },
+    {
+        "id": "coin-collector",
+        "title": "Coin Collector",
+        "description": "A simple coin collector micro game built in Unity.",
+        "tags": [
+            "C#",
+            "Unity",
+            "game dev"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/coin-collector",
+            "demo": null
+        }
+    },
+    {
+        "id": "snake-game",
+        "title": "Snake Game",
+        "description": "Currently private. The classic snake game I'm writing in C++ for learning and fun.",
+        "tags": [
+            "C++",
+            "game dev",
+            "engine-free"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/snake-game",
+            "demo": null
+        }
+    },
+    {
+        "id": "file-deletion-tool",
+        "title": "File Deletion Tool",
+        "description": "A simple tool I made while learning Node.js that lets users delete a specific file by simply typing in its name in the input field and clicking on the delete button.",
+        "tags": [
+            "Node.js",
+            "Express",
+            "HTML",
+            "CSS"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/snake-game",
+            "demo": null
+        }
+    },
+    {
+        "id": "password-generator-js",
+        "title": "Password Generator",
+        "description": "A simple password generator web app that lets users copy the generated password(s) to their clipboard.",
+        "tags": [
+            "JavaScript",
+            "HTML",
+            "CSS"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/password-generator-js",
+            "demo": null
+        }
+    },
+    {
+        "id": "roll-the-dice",
+        "title": "Roll the Dice",
+        "description": "A dice roller that lets users roll as many dice as they want all at once. Made while learning JavaScript.",
+        "tags": [
+            "JavaScript",
+            "HTML",
+            "CSS"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/roll-the-dice",
+            "demo": null
+        }
+    }
+]
