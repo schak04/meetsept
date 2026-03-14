@@ -12,17 +12,21 @@ const SKILL_GROUPS = [
     {
         title: 'Languages',
         icon: Code2,
-        skills: ['C++', 'C', 'JavaScript', 'TypeScript', 'Java', 'Python', 'C# (Learning)']
+        skills: ['C++', 'C', 'JavaScript', 'TypeScript', 'Java', 'Python', 'C# (Learning)'],
+        learning: ['C#'],
+        planned: ['Assembly', 'Rust', 'Go', 'Lua']
     },
     {
         title: 'Systems and Backend',
         icon: Server,
-        skills: ['Node.js', 'Express', 'REST APIs', 'C++ STL', 'Systems Programming (Basics)']
+        skills: ['C++ STL', 'Node.js', 'Express', 'REST APIs', 'WebSockets', 'Systems Programming (Basics)'],
+        learning: ['Automation', 'SOLID Principles', 'CAP Theorem'],
+        planned: ['Scalability', 'Load Balancing', 'Caching', 'Sharding', 'GraphQL', 'NGINX']
     },
     {
         title: 'Web Technologies',
         icon: Globe,
-        skills: ['React', 'Redux', 'Tailwind CSS', 'HTML5', 'CSS3', 'Vite']
+        skills: ['React.js', 'Redux', 'Tailwind CSS', 'HTML5', 'CSS3', 'Vite']
     },
     {
         title: 'Database Management',
@@ -32,7 +36,8 @@ const SKILL_GROUPS = [
     {
         title: 'Tools and Environment',
         icon: TerminalIcon,
-        skills: ['Arch Linux', 'Vim/Neovim', 'Git/GitHub', 'Docker (Basics)', 'Postman']
+        skills: ['Arch Linux', 'Vim/Neovim', 'Git/GitHub', 'Postman', 'Learning: Docker, AWS'],
+        learning: ['Unity']
     }
 ];
 
@@ -74,9 +79,12 @@ export default function Skills() {
                     <h3 className='text-sm font-mono uppercase tracking-[0.2em]'>Learning Status</h3>
                 </div>
                 <div className='space-y-4'>
-                    <StatusItem label='Low-level Development (C++/OpenGL)' progress={40} status='Exploring' />
-                    <StatusItem label='Cloud Infrastructure (AWS)' progress={25} status='Starting' />
-                    <StatusItem label='Advanced System Design' progress={30} status='Expanding' />
+                    <StatusItem label='Data Structures & Algorithms' progress={40} status='Revising & Solving Problems' />
+                    <StatusItem label='Computer Science Fundamentals' progress={50} status='Revising' />
+                    <StatusItem label='Arch Linux' progress={30} status='Using & Exploring' />
+                    <StatusItem label='Low-level Development & Backend Systems Programming' progress={30} status='Exploring' />
+                    <StatusItem label='DevOps & Cloud Computing' progress={18} status='Starting' />
+                    <StatusItem label='System Design' progress={30} status='Exploring' />
                 </div>
             </div>
         </div>
@@ -101,5 +109,3 @@ function StatusItem({ label, progress, status }) {
         </div>
     );
 }
-
-
