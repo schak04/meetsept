@@ -9,8 +9,8 @@ Available commands:
   projects        - View his projects
   learning        - Current explorations
   training        - Trainings undergone
-  certificates    - View his certificates
   cv              - View his CV (download to view)
+  contact         - Contact details 
   help            - List all commands
   clear           - Clear terminal
 `;
@@ -18,7 +18,7 @@ Available commands:
 export default function Terminal({ onCommand, onClose }) {
     const [input, setInput] = useState('');
     const [history, setHistory] = useState([
-        { type: 'output', content: 'Welcome to MeetSept (Saptaparno\'s Portfolio)' },
+        { type: 'output', content: "Welcome to MeetSept (Saptaparno's Portfolio)" },
         { type: 'output', content: 'Type "help" to see available commands.' }
     ]);
     const inputRef = useRef(null);
@@ -43,7 +43,7 @@ export default function Terminal({ onCommand, onClose }) {
                 setHistory([]);
             } else if (cmd === 'help') {
                 setHistory([...newHistory, { type: 'output', content: HELP_MESSAGE }]);
-            } else if (['about', 'skills', 'projects', 'training', 'certificates', 'learning', 'cv', 'contact'].includes(cmd)) {
+            } else if (['about', 'skills', 'projects', 'learning', 'training', 'cv', 'contact'].includes(cmd)) {
                 setHistory([...newHistory, { type: 'output', content: `Executing ${cmd}...` }]);
                 onCommand(cmd);
             } else if (cmd !== '') {
