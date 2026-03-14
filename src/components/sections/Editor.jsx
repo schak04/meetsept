@@ -19,7 +19,7 @@ export default function Editor() {
         <div className='flex h-full w-full bg-bg-secondary dark:bg-dark-bg-secondary overflow-hidden border border-border dark:border-dark-border rounded-lg shadow-2xl transition-all'>
             <aside className='neovim-sidebar'>
                 <div className='p-4 border-b border-border dark:border-dark-border flex items-center justify-between'>
-                    <span className='text-[10px] font-bold text-arch-blue uppercase tracking-widest'> NvimTree</span>
+                    <span className='text-[10px] font-bold text-arch-blue uppercase tracking-widest'> Projects</span>
                     <Search size={12} className='text-muted' />
                 </div>
 
