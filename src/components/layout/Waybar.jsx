@@ -56,7 +56,7 @@ export default function Waybar({ activeWindow, onNavigate }) {
                     <Cpu size={12} className='text-arch-blue' />
                     <span>0.42%</span>
                 </div>
-                <div className='waybar-module border-transparent'>
+                <div className='waybar-module'>
                     <Battery size={12} className='text-yellow-500' />
                     <span>84%</span>
                 </div>
