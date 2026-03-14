@@ -11,6 +11,7 @@ import Skills from './components/sections/Skills';
 import Learning from './components/sections/Learning';
 import Training from './components/sections/Training';
 import Contact from './components/sections/Contact';
+import CV from './components/sections/CV';
 import { Cpu } from 'lucide-react';
 
 const App = () => {
@@ -56,22 +57,7 @@ const App = () => {
             case 'cv':
                 return (
                     <Panel title='CV' onClose={() => setActiveWindow('terminal')}>
-                        <div className='flex flex-col items-center justify-center space-y-8 py-12'>
-                            <div className='p-8 bg-white/5 dark:bg-black/40 border border-border dark:border-dark-border rounded-2xl flex flex-col items-center gap-6 text-center max-w-md'>
-                                <Cpu size={48} className='text-arch-blue' />
-                                <div>
-                                    <h3 className='text-xl font-bold mb-2'>Saptaparno's CV</h3>
-                                    <p className='text-sm text-muted'>Keeps updating often.</p>
-                                </div>
-                                <a
-                                    href='/assets/SaptaparnoChakrabortyCV.pdf'
-                                    download
-                                    className='btn btn-primary w-full flex items-center justify-center gap-2'
-                                >
-                                    Download
-                                </a>
-                            </div>
-                        </div>
+                        <CV />
                     </Panel>
                 );
             case 'contact':
@@ -142,5 +128,3 @@ const App = () => {
 };
 
 export default App;
-
-

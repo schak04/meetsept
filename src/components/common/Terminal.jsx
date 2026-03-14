@@ -9,8 +9,8 @@ Available commands:
   projects        - View his projects
   learning        - Current explorations
   training        - Trainings undergone
-  cv              - View his CV (download to view)
-  contact         - Contact details 
+  cv              - View his CV
+  contact         - Contact details
   help            - List all commands
   clear           - Clear terminal
 `;
