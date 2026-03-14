@@ -7,9 +7,9 @@ import Terminal from './components/common/Terminal';
 import Editor from './components/sections/Editor';
 import Panel from './components/common/Panel';
 import About from './components/sections/About';
-import { Cpu } from 'lucide-react';
-
 import Skills from './components/sections/Skills';
+import Learning from './components/sections/Learning';
+import { Cpu } from 'lucide-react';
 
 const App = () => {
     const [isBooting, setIsBooting] = useState(true);
@@ -35,8 +35,14 @@ const App = () => {
                 );
             case 'skills':
                 return (
-                    <Panel title="SKILLS" onClose={() => setActiveWindow('terminal')}>
+                    <Panel title='SKILLS' onClose={() => setActiveWindow('terminal')}>
                         <Skills />
+                    </Panel>
+                );
+            case 'learning':
+                return (
+                    <Panel title='LEARNING' onClose={() => setActiveWindow('terminal')}>
+                        <Learning />
                     </Panel>
                 );
             case 'cv':

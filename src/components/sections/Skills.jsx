@@ -4,24 +4,19 @@ import {
     Database,
     Globe,
     Terminal as TerminalIcon,
-    Server,
-    Cpu
+    Server
 } from 'lucide-react';
 
 const SKILL_GROUPS = [
     {
         title: 'Languages',
         icon: Code2,
-        skills: ['C++', 'C', 'JavaScript', 'TypeScript', 'Java', 'Python', 'C# (Learning)'],
-        learning: ['C#'],
-        planned: ['Assembly', 'Rust', 'Go', 'Lua']
+        skills: ['C++', 'C', 'JavaScript', 'TypeScript', 'Java', 'Python', 'C# (Learning)']
     },
     {
         title: 'Systems and Backend',
         icon: Server,
-        skills: ['C++ STL', 'Node.js', 'Express', 'REST APIs', 'WebSockets', 'Systems Programming (Basics)'],
-        learning: ['Automation', 'SOLID Principles', 'CAP Theorem'],
-        planned: ['Scalability', 'Load Balancing', 'Caching', 'Sharding', 'GraphQL', 'NGINX']
+        skills: ['C++ STL', 'Node.js', 'Express', 'REST APIs', 'WebSockets', 'Systems Programming']
     },
     {
         title: 'Web Technologies',
@@ -36,8 +31,7 @@ const SKILL_GROUPS = [
     {
         title: 'Tools and Environment',
         icon: TerminalIcon,
-        skills: ['Arch Linux', 'Vim/Neovim', 'Git/GitHub', 'Postman', 'Learning: Docker, AWS'],
-        learning: ['Unity']
+        skills: ['Arch Linux', 'Vim/Neovim', 'Git/GitHub', 'Postman', 'Docker (Basics)']
     }
 ];
 
@@ -51,7 +45,7 @@ export default function Skills() {
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: i * 0.1 }}
-                        className='p-6 bg-white/5 border border-system-border rounded-xl hover:border-arch-blue/50 transition-all group'
+                        className='p-6 bg-black/5 dark:bg-white/5 border border-border dark:border-dark-border rounded-xl hover:border-arch-blue/50 transition-all group'
                     >
                         <div className='flex items-center gap-3 mb-4'>
                             <div className='p-2 bg-arch-blue/10 rounded-lg text-arch-blue group-hover:bg-arch-blue group-hover:text-black transition-all'>
@@ -71,40 +65,6 @@ export default function Skills() {
                         </div>
                     </motion.div>
                 ))}
-            </div>
-
-            <div className='mt-12 p-6 bg-arch-blue/5 border border-arch-blue/20 rounded-xl'>
-                <div className='flex items-center gap-3 mb-4 text-arch-blue'>
-                    <Cpu size={20} />
-                    <h3 className='text-sm font-mono uppercase tracking-[0.2em]'>Learning Status</h3>
-                </div>
-                <div className='space-y-4'>
-                    <StatusItem label='Data Structures & Algorithms' progress={40} status='Revising & Solving Problems' />
-                    <StatusItem label='Computer Science Fundamentals' progress={50} status='Revising' />
-                    <StatusItem label='Arch Linux' progress={30} status='Using & Exploring' />
-                    <StatusItem label='Low-level Development & Backend Systems Programming' progress={30} status='Exploring' />
-                    <StatusItem label='DevOps & Cloud Computing' progress={18} status='Starting' />
-                    <StatusItem label='System Design' progress={30} status='Exploring' />
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function StatusItem({ label, progress, status }) {
-    return (
-        <div className='space-y-1.5'>
-            <div className='flex justify-between text-[10px] font-mono uppercase tracking-widest px-1'>
-                <span className='text-text-primary dark:text-dark-text-primary'>{label}</span>
-                <span className='text-arch-blue font-bold'>{status}</span>
-            </div>
-            <div className='h-1.5 w-full bg-black/5 dark:bg-black/40 rounded-full overflow-hidden border border-border dark:border-dark-border'>
-                <motion.div
-                    initial={{ width: 0 }}
-                    animate={{ width: `${progress}%` }}
-                    transition={{ duration: 1, delay: 0.5 }}
-                    className='h-full bg-arch-blue'
-                />
             </div>
         </div>
     );
