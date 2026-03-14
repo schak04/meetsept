@@ -9,6 +9,7 @@ import Panel from './components/common/Panel';
 import About from './components/sections/About';
 import Skills from './components/sections/Skills';
 import Learning from './components/sections/Learning';
+import Training from './components/sections/Training';
 import { Cpu } from 'lucide-react';
 
 const App = () => {
@@ -29,7 +30,7 @@ const App = () => {
                 return <Editor />;
             case 'about':
                 return (
-                    <Panel title="ABOUT" onClose={() => setActiveWindow('terminal')}>
+                    <Panel title='ABOUT' onClose={() => setActiveWindow('terminal')}>
                         <About />
                     </Panel>
                 );
@@ -43,6 +44,12 @@ const App = () => {
                 return (
                     <Panel title='LEARNING' onClose={() => setActiveWindow('terminal')}>
                         <Learning />
+                    </Panel>
+                );
+            case 'training':
+                return (
+                    <Panel title='TRAINING' onClose={() => setActiveWindow('terminal')}>
+                        <Training />
                     </Panel>
                 );
             case 'cv':
