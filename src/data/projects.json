@@ -70,7 +70,7 @@
     {
         "id": "mydayoff",
         "title": "MyDayOff",
-        "description": "a full-stack HR workflow simulation for managing employee (and manager) leave and reimbursement requests and approvals.",
+        "description": "A full-stack HR workflow simulation for managing employee (and manager) leave and reimbursement requests and approvals.",
         "tags": [
             "MERN",
             "JWT",
