@@ -71,7 +71,7 @@ const App = () => {
                             onClick={() => setActiveWindow('terminal')}
                             className='btn btn-secondary text-xs'
                         >
-                            Return to the terminal
+                            Return to septerminal
                         </button>
                     </div>
                 );
