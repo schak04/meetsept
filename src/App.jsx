@@ -50,7 +50,7 @@ const App = () => {
                                     <p className='text-sm text-muted'>Keeps updating often.</p>
                                 </div>
                                 <a
-                                    href='/SaptaparnoChakrabortyCV.pdf'
+                                    href='/assets/SaptaparnoChakrabortyCV.pdf'
                                     download
                                     className='btn btn-primary w-full flex items-center justify-center gap-2'
                                 >
