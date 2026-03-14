@@ -41,7 +41,7 @@ export default function Waybar({ activeWindow, onNavigate }) {
             </div>
 
             <div className='hidden md:flex items-center gap-1 pointer-events-auto'>
-                <div className='waybar-module border-transparent bg-transparent text-[14px]'>
+                <div className='waybar-module border-transparent bg-transparent text-[12px]'>
                     Saptaparno Chakraborty (Aspiring Software Engineer | Hobbyist Game Developer)
                 </div>
             </div>
