@@ -10,6 +10,7 @@ import About from './components/sections/About';
 import Skills from './components/sections/Skills';
 import Learning from './components/sections/Learning';
 import Training from './components/sections/Training';
+import Contact from './components/sections/Contact';
 import { Cpu } from 'lucide-react';
 
 const App = () => {
@@ -71,6 +72,12 @@ const App = () => {
                                 </a>
                             </div>
                         </div>
+                    </Panel>
+                );
+            case 'contact':
+                return (
+                    <Panel title='CONTACT' onClose={() => setActiveWindow('terminal')}>
+                        <Contact />
                     </Panel>
                 );
             default:
