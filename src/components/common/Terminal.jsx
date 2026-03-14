@@ -7,9 +7,9 @@ Available commands:
   about           - Learn about Saptaparno
   skills          - View his skills
   projects        - View his projects
+  learning        - Current explorations
   training        - Trainings undergone
   certificates    - View his certificates
-  learning        - Current explorations
   cv              - View his CV (download to view)
   help            - List all commands
   clear           - Clear terminal
