@@ -11,12 +11,12 @@ const SKILL_GROUPS = [
     {
         title: 'Languages',
         icon: Code2,
-        skills: ['C++', 'C', 'JavaScript', 'TypeScript', 'Java', 'Python', 'C# (Learning)']
+        skills: ['C++', 'C', 'JavaScript', 'TypeScript (Learning)', 'Java', 'Python', 'C# (Learning)']
     },
     {
         title: 'Systems and Backend',
         icon: Server,
-        skills: ['C++ STL', 'Node.js', 'Express', 'REST APIs', 'WebSockets', 'Systems Programming']
+        skills: ['C++ STL', 'Node.js', 'Express', 'REST APIs', 'WebSockets', 'Systems Programming (Basics)']
     },
     {
         title: 'Web Technologies',
