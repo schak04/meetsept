@@ -10,12 +10,12 @@ export default function Panel({ title, children, onClose, id }) {
             exit={{ opacity: 0, scale: 0.95, y: 20 }}
             className='hypr-window flex flex-col h-full w-full max-w-4xl mx-auto rounded-lg overflow-hidden'
         >
-            <div className='bg-black/5 dark:bg-black/40 px-4 py-2 flex items-center justify-between border-b border-border dark:border-dark-border transition-colors'>
-                <div className='flex items-center gap-3'>
-                    <span className='text-[10px] font-mono font-bold text-arch-blue uppercase tracking-widest px-2 py-0.5 bg-arch-blue/10 rounded'>
+            <div className='bg-black/5 dark:bg-black/40 px-2 sm:px-4 py-2 flex items-center justify-between border-b border-border dark:border-dark-border transition-colors'>
+                <div className='flex items-center gap-2 sm:gap-3'>
+                    <span className='text-[9px] sm:text-[10px] font-mono font-bold text-arch-blue uppercase tracking-widest px-2 py-0.5 bg-arch-blue/10 rounded truncate max-w-25 sm:max-w-none'>
                         {title}
                     </span>
-                    <span className='text-[10px] font-mono text-muted'>~/meetsept/{title.toLowerCase()}</span>
+                    <span className='hidden sm:inline text-[10px] font-mono text-muted'>~/meetsept/{title.toLowerCase()}</span>
                 </div>
                 <div className='flex items-center gap-1'>
                     <WmButton icon={Minus} hoverColor='text-yellow-400' hoverBg='hover:bg-yellow-400/10 hover:border-yellow-400/40' />
@@ -24,13 +24,13 @@ export default function Panel({ title, children, onClose, id }) {
                 </div>
             </div>
 
-            <div className='flex-1 overflow-y-auto p-8 custom-scrollbar bg-bg-secondary/50 dark:bg-dark-bg-secondary/80 backdrop-blur transition-colors'>
+            <div className='flex-1 overflow-y-auto p-4 sm:p-8 custom-scrollbar bg-bg-secondary/50 dark:bg-dark-bg-secondary/80 backdrop-blur transition-colors'>
                 {children}
             </div>
 
-            <div className='bg-black/5 dark:bg-dark-bg-secondary text-[10px] font-mono text-muted px-4 py-1 flex justify-between border-t border-border dark:border-dark-border'>
-                <span>[INFO] Workspace: Main</span>
-                <span>meetsept@arch: ~/{title.toLowerCase()}</span>
+            <div className='bg-black/5 dark:bg-dark-bg-secondary text-[9px] sm:text-[10px] font-mono text-muted px-4 py-1 flex justify-between border-t border-border dark:border-dark-border'>
+                <span className='truncate mr-2'>[INFO] Workspace: Main</span>
+                <span className='truncate'>meetsept@arch: ~/{title.toLowerCase()}</span>
             </div>
 
         </motion.div>

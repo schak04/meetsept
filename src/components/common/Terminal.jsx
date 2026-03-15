@@ -7,7 +7,7 @@ Available commands:
   about           - Learn about Saptaparno
   skills          - View his skills
   projects        - View his projects
-  learning        - Current explorations
+  learning        - Current & future-planned explorations
   training        - Trainings undergone
   cv              - View his CV
   contact         - Contact details
@@ -83,7 +83,7 @@ export default function Terminal({ onCommand, onClose }) {
 
             <div
                 ref={scrollRef}
-                className='flex-1 p-4 overflow-y-auto font-mono text-sm bg-bg-primary/50 dark:bg-dark-bg-primary/80 custom-scrollbar transition-colors'
+                className='flex-1 p-2 sm:p-4 overflow-y-auto font-mono text-[12px] sm:text-sm bg-bg-primary/50 dark:bg-dark-bg-primary/80 custom-scrollbar transition-colors'
                 onClick={() => inputRef.current?.focus()}
             >
                 {history.map((line, i) => (
@@ -95,7 +95,7 @@ export default function Terminal({ onCommand, onClose }) {
                                 <span className='text-text-primary dark:text-dark-text-primary'>{line.content}</span>
                             </div>
                         ) : (
-                            <pre className='whitespace-pre-wrap text-text-primary dark:text-dark-text-primary opacity-90'>{line.content}</pre>
+                            <pre className='whitespace-pre-wrap text-text-primary dark:text-dark-text-primary opacity-90 break-all sm:break-normal'>{line.content}</pre>
                         )}
                     </div>
                 ))}
@@ -116,9 +116,9 @@ export default function Terminal({ onCommand, onClose }) {
                 </div>
             </div>
 
-            <div className='bg-arch-blue text-black px-4 py-0.5 text-[10px] font-bold uppercase flex justify-between'>
+            <div className='bg-arch-blue text-black px-4 py-0.5 text-[9px] sm:text-[10px] font-bold uppercase flex justify-between'>
                 <span>septerminal V0.21.0</span>
-                <span>UTF-8 | BASH</span>
+                <span className='hidden sm:block'>UTF-8 | BASH</span>
             </div>
         </motion.div>
     );

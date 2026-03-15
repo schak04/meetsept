@@ -76,7 +76,7 @@ export default function PowerOn({ onStart }) {
             <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
-                className='relative z-10 flex flex-col items-center gap-8 bg-black/40 backdrop-blur-xl p-12 rounded-4xl border border-white/5'
+                className='relative z-10 flex flex-col items-center gap-6 sm:gap-8 bg-black/40 backdrop-blur-xl p-8 sm:p-12 rounded-3xl sm:rounded-4xl border border-white/5 w-[90%] sm:w-auto'
             >
                 <button onClick={onStart} className='group relative p-8 rounded-full border border-arch-blue/30 bg-black hover:border-arch-blue hover:bg-arch-blue/5 transition-all duration-700 cursor-pointer'>
                     <div className='absolute inset-0 rounded-full border border-arch-blue/20 animate-ping opacity-20' />

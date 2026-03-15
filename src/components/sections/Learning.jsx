@@ -11,7 +11,7 @@ const TRACKS = [
     },
     {
         label: 'CS Fundamentals (OS, Networking, Architecture, DBMS)',
-        progress: 50,
+        progress: 45,
         status: 'Active',
         note: 'Theory revision alongside my coursework'
     },
@@ -23,7 +23,7 @@ const TRACKS = [
     },
     {
         label: 'System Design',
-        progress: 30,
+        progress: 25,
         status: 'Exploring',
         note: 'Reading about scalability, caching, sharding, load balancing, distributed systems patterns'
     },

@@ -118,14 +118,14 @@ const App = () => {
                         <>
                             <Waybar activeWindow={activeWindow} onNavigate={setActiveWindow} />
 
-                            <main className='flex-1 mt-10 p-4 md:p-6 lg:p-8 flex items-center justify-center relative z-10'>
+                            <main className='flex-1 mt-8 sm:mt-10 p-2 sm:p-4 md:p-6 lg:p-8 flex items-center justify-center relative z-10 overflow-hidden'>
                                 <AnimatePresence mode='wait'>
                                     <motion.div
                                         key={activeWindow}
-                                        className='w-full h-full max-w-6xl max-h-[85vh]'
-                                        initial={{ opacity: 0, scale: 0.97, filter: 'blur(10px)' }}
+                                        className='w-full h-full max-w-6xl max-h-[90vh] sm:max-h-[85vh]'
+                                        initial={{ opacity: 0, scale: 0.98, filter: 'blur(5px)' }}
                                         animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                                        exit={{ opacity: 0, scale: 1.03, filter: 'blur(10px)' }}
+                                        exit={{ opacity: 0, scale: 1.02, filter: 'blur(5px)' }}
                                         transition={{
                                             type: 'spring',
                                             stiffness: 300,

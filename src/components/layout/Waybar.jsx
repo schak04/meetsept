@@ -32,32 +32,34 @@ export default function Waybar({ activeWindow, onNavigate }) {
                     className='waybar-module text-arch-blue border-arch-blue/50 font-bold hover:bg-arch-blue/10 transition-colors cursor-pointer group'
                 >
                     <Terminal size={12} className='group-hover:scale-110 transition-transform' />
-                    <span>MeetSept</span>
+                    <span className='hidden sm:inline'>MeetSept</span>
                 </button>
                 <div className='waybar-module shadow-sm'>
                     <Layout size={12} className='text-arch-blue' />
-                    <span className='capitalize'>{activeWindow || 'Desktop'}</span>
+                    <span className='capitalize truncate max-w-20 sm:max-w-none'>{activeWindow || 'Desktop'}</span>
                 </div>
             </div>
 
-            <div className='hidden md:flex items-center gap-1 pointer-events-auto'>
+            <div className='hidden lg:flex items-center gap-1 pointer-events-auto'>
                 <div className='waybar-module border-transparent bg-transparent text-[12px]'>
                     Saptaparno Chakraborty (Aspiring Software Engineer | Hobbyist Game Developer)
                 </div>
             </div>
 
             <div className='flex items-center gap-1 pointer-events-auto'>
-                <div className='waybar-module'>
-                    <Wifi size={12} className='text-green-500' />
-                    <span>up</span>
-                </div>
-                <div className='waybar-module'>
-                    <Cpu size={12} className='text-arch-blue' />
-                    <span>0.42%</span>
-                </div>
-                <div className='waybar-module'>
-                    <Battery size={12} className='text-yellow-500' />
-                    <span>84%</span>
+                <div className='hidden md:flex items-center gap-1'>
+                    <div className='waybar-module'>
+                        <Wifi size={12} className='text-green-500' />
+                        <span>up</span>
+                    </div>
+                    <div className='waybar-module'>
+                        <Cpu size={12} className='text-arch-blue' />
+                        <span>0.42%</span>
+                    </div>
+                    <div className='waybar-module'>
+                        <Battery size={12} className='text-yellow-500' />
+                        <span>84%</span>
+                    </div>
                 </div>
 
                 <button
@@ -72,10 +74,10 @@ export default function Waybar({ activeWindow, onNavigate }) {
                     )}
                 </button>
 
-                <div className='waybar-module bg-arch-blue/10 border-arch-blue/30 text-arch-blue font-bold'>
-                    <Calendar size={12} />
-                    <span>{formatDate(time)}</span>
-                    <span className='mx-1 opacity-20'>|</span>
+                <div className='waybar-module bg-arch-blue/10 border-arch-blue/30 text-arch-blue font-bold px-2 sm:px-3'>
+                    <Calendar size={12} className='hidden sm:block' />
+                    <span className='hidden sm:inline'>{formatDate(time)}</span>
+                    <span className='hidden sm:inline mx-1 opacity-20'>|</span>
                     <Clock size={12} />
                     <span>{formatTime(time)}</span>
                 </div>

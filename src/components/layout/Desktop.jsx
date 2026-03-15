@@ -8,10 +8,10 @@ export default function Desktop({ onNavigate }) {
                 animate={{ opacity: 1, y: 0 }}
                 className='space-y-2'
             >
-                <h1 className='text-6xl md:text-8xl font-black tracking-tighter text-arch-blue'>
+                <h1 className='text-5xl sm:text-6xl md:text-8xl font-black tracking-tighter text-arch-blue'>
                     MeetSept
                 </h1>
-                <p className='text-sm md:text-base font-mono text-muted uppercase tracking-[0.3em] font-medium'>
+                <p className='text-[10px] sm:text-sm md:text-base font-mono text-muted uppercase tracking-[0.2em] sm:tracking-[0.3em] font-medium px-4'>
                     Saptaparno Chakraborty's Portfolio
                 </p>
             </motion.div>
