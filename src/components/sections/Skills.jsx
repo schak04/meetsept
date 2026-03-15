@@ -6,6 +6,68 @@ import {
     Terminal as TerminalIcon,
     Server
 } from 'lucide-react';
+import {
+    SiCplusplus,
+    SiC,
+    SiJavascript,
+    SiTypescript,
+    SiPython,
+    SiSharp,
+    SiNodedotjs,
+    SiExpress,
+    SiSocketdotio,
+    SiReact,
+    SiRedux,
+    SiTailwindcss,
+    SiHtml5,
+    SiCss,
+    SiVite,
+    SiMongodb,
+    SiPostgresql,
+    SiMysql,
+    SiSqlite,
+    SiArchlinux,
+    SiVim,
+    SiNeovim,
+    SiGit,
+    SiGithub,
+    SiPostman,
+    SiDocker,
+    SiOpenjdk
+} from 'react-icons/si';
+
+const SKILL_ICONS = {
+    'C++': SiCplusplus,
+    'C': SiC,
+    'JavaScript': SiJavascript,
+    'TypeScript (Learning)': SiTypescript,
+    'Java': SiOpenjdk,
+    'Python': SiPython,
+    'C# (Learning)': SiSharp,
+    'C++ STL': SiCplusplus,
+    'Node.js': SiNodedotjs,
+    'Express': SiExpress,
+    'REST APIs': Server,
+    'WebSockets': SiSocketdotio,
+    'Systems Programming (Basics)': TerminalIcon,
+    'React.js': SiReact,
+    'Redux': SiRedux,
+    'Tailwind CSS': SiTailwindcss,
+    'HTML5': SiHtml5,
+    'CSS3': SiCss,
+    'Vite': SiVite,
+    'MongoDB': SiMongodb,
+    'PostgreSQL': SiPostgresql,
+    'MySQL': SiMysql,
+    'SQLite': SiSqlite,
+    'Arch Linux': SiArchlinux,
+    'Vim': SiVim,
+    'Neovim': SiNeovim,
+    'Git': SiGit,
+    'GitHub': SiGithub,
+    'Postman': SiPostman,
+    'Docker (Basics)': SiDocker
+};
 
 const SKILL_GROUPS = [
     {
@@ -31,7 +93,7 @@ const SKILL_GROUPS = [
     {
         title: 'Tools and Environment',
         icon: TerminalIcon,
-        skills: ['Arch Linux', 'Vim/Neovim', 'Git/GitHub', 'Postman', 'Docker (Basics)']
+        skills: ['Arch Linux', 'Vim', 'Neovim', 'Git', 'GitHub', 'Postman', 'Docker (Basics)']
     }
 ];
 
@@ -54,14 +116,18 @@ export default function Skills() {
                             <h3 className='text-lg font-bold'>{group.title}</h3>
                         </div>
                         <div className='flex flex-wrap gap-2'>
-                            {group.skills.map(skill => (
-                                <span
-                                    key={skill}
-                                    className='px-3 py-1 bg-black/5 dark:bg-black/40 border border-border dark:border-dark-border rounded-full text-xs font-mono text-muted hover:text-arch-blue hover:border-arch-blue transition-colors'
-                                >
-                                    {skill}
-                                </span>
-                            ))}
+                            {group.skills.map(skill => {
+                                const Icon = SKILL_ICONS[skill];
+                                return (
+                                    <span
+                                        key={skill}
+                                        className='px-3 py-1.5 bg-black/5 dark:bg-black/40 border border-border dark:border-dark-border rounded-full text-xs font-mono text-muted hover:text-arch-blue hover:border-arch-blue transition-all flex items-center gap-2'
+                                    >
+                                        {Icon && <Icon size={14} className='opacity-70 group-hover:opacity-100 transition-opacity' />}
+                                        {skill}
+                                    </span>
+                                );
+                            })}
                         </div>
                     </motion.div>
                 ))}
