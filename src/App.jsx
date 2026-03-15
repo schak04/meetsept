@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from './context/ThemeContext';
 import BootScreen from './components/layout/BootScreen';
+import PowerOn from './components/layout/PowerOn';
 import Waybar from './components/layout/Waybar';
 import Desktop from './components/layout/Desktop';
 import Terminal from './components/common/Terminal';
@@ -16,6 +17,7 @@ import CV from './components/sections/CV';
 import { Cpu } from 'lucide-react';
 
 const App = () => {
+    const [hasStarted, setHasStarted] = useState(false);
     const [isBooting, setIsBooting] = useState(true);
     const [activeWindow, setActiveWindow] = useState('terminal');
     const { theme } = useTheme();
@@ -90,42 +92,52 @@ const App = () => {
     };
 
     return (
-        <div className='h-screen w-screen overflow-hidden flex flex-col font-i relative'>
-            <div className={`absolute inset-0 transition-all duration-1000 ${theme === 'dark' ? 'opacity-30' : 'opacity-10'}`}>
-                <div className='absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-arch-blue/20 rounded-full blur-[120px] animate-pulse' />
-                <div className='absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-600/20 rounded-full blur-[120px]' />
-                <div className='absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-blue-400/10 rounded-full blur-[100px]' />
-                <div className='absolute inset-0 bg-[linear-gradient(to_right,#8888880a_1px,transparent_1px),linear-gradient(to_bottom,#8888880a_1px,transparent_1px)] bg-size[40px_40px]' />
-            </div>
-
+        <div className='h-screen w-screen overflow-hidden flex flex-col font-i relative bg-bg-primary dark:bg-dark-bg-primary transition-colors duration-1000'>
             <AnimatePresence>
-                {isBooting && (
-                    <BootScreen onComplete={() => setIsBooting(false)} />
+                {!hasStarted && (
+                    <PowerOn onStart={() => setHasStarted(true)} />
                 )}
             </AnimatePresence>
 
-            {!isBooting && (
+            {hasStarted && (
                 <>
-                    <Waybar activeWindow={activeWindow} onNavigate={setActiveWindow} />
+                    <div className={`absolute inset-0 transition-all duration-1000 ${theme === 'dark' ? 'opacity-30' : 'opacity-10'}`}>
+                        <div className='absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-arch-blue/20 rounded-full blur-[120px] animate-pulse' />
+                        <div className='absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-purple-600/20 rounded-full blur-[120px]' />
+                        <div className='absolute top-[20%] right-[10%] w-[30%] h-[30%] bg-blue-400/10 rounded-full blur-[100px]' />
+                        <div className='absolute inset-0 bg-[linear-gradient(to_right,#8888880a_1px,transparent_1px),linear-gradient(to_bottom,#8888880a_1px,transparent_1px)] bg-size[40px_40px]' />
+                    </div>
 
-                    <main className='flex-1 mt-10 p-4 md:p-6 lg:p-8 flex items-center justify-center relative z-10'>
-                        <AnimatePresence mode='wait'>
-                            <motion.div
-                                key={activeWindow}
-                                className='w-full h-full max-w-6xl max-h-[85vh]'
-                                initial={{ opacity: 0, scale: 0.97, filter: 'blur(10px)' }}
-                                animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-                                exit={{ opacity: 0, scale: 1.03, filter: 'blur(10px)' }}
-                                transition={{
-                                    type: 'spring',
-                                    stiffness: 300,
-                                    damping: 30
-                                }}
-                            >
-                                {renderWindowContent()}
-                            </motion.div>
-                        </AnimatePresence>
-                    </main>
+                    <AnimatePresence>
+                        {isBooting && (
+                            <BootScreen onComplete={() => setIsBooting(false)} />
+                        )}
+                    </AnimatePresence>
+
+                    {!isBooting && (
+                        <>
+                            <Waybar activeWindow={activeWindow} onNavigate={setActiveWindow} />
+
+                            <main className='flex-1 mt-10 p-4 md:p-6 lg:p-8 flex items-center justify-center relative z-10'>
+                                <AnimatePresence mode='wait'>
+                                    <motion.div
+                                        key={activeWindow}
+                                        className='w-full h-full max-w-6xl max-h-[85vh]'
+                                        initial={{ opacity: 0, scale: 0.97, filter: 'blur(10px)' }}
+                                        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                                        exit={{ opacity: 0, scale: 1.03, filter: 'blur(10px)' }}
+                                        transition={{
+                                            type: 'spring',
+                                            stiffness: 300,
+                                            damping: 30
+                                        }}
+                                    >
+                                        {renderWindowContent()}
+                                    </motion.div>
+                                </AnimatePresence>
+                            </main>
+                        </>
+                    )}
                 </>
             )}
         </div>
