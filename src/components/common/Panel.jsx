@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Minus, Square, X } from 'lucide-react';
+import { X } from 'lucide-react';
 
 export default function Panel({ title, children, onClose, id }) {
     return (
@@ -18,7 +18,9 @@ export default function Panel({ title, children, onClose, id }) {
                     <span className='hidden sm:inline text-[10px] font-mono text-muted'>~/meetsept/{title.toLowerCase()}</span>
                 </div>
                 <div className='flex items-center gap-1'>
-                    <WmButton icon={X} hoverColor='text-red-400' hoverBg='hover:bg-red-400/10 hover:border-red-400/40' onClick={onClose} />
+                    <button className='w-6 h-6 flex items-center justify-center border border-border dark:border-white/10 rounded-sm text-muted hover:text-red-400 hover:bg-red-400/10 hover:border-red-400/40 transition-all duration-150 cursor-pointer group' onClick={onClose}>
+                        <X size={10} className='transition-transform group-hover:scale-110' />
+                    </button>
                 </div>
             </div>
 
@@ -32,16 +34,5 @@ export default function Panel({ title, children, onClose, id }) {
             </div>
 
         </motion.div>
-    );
-}
-
-function WmButton({ icon: Icon, hoverColor, hoverBg, onClick }) {
-    return (
-        <button
-            onClick={onClick}
-            className={`w-6 h-6 flex items-center justify-center border border-border dark:border-white/10 rounded-sm text-muted ${hoverColor} ${hoverBg} transition-all duration-150 cursor-pointer group`}
-        >
-            <Icon size={10} className='transition-transform group-hover:scale-110' />
-        </button>
     );
 }
