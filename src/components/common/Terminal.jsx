@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Terminal as TerminalIcon, X, Minus, Square } from 'lucide-react';
+import { Terminal as TerminalIcon, X } from 'lucide-react';
 
 const HELP_MESSAGE = `
 Available commands:
@@ -69,12 +69,6 @@ export default function Terminal({ onCommand, onClose }) {
                     <span className='text-xs font-mono text-muted'>~/meetsept/workspace</span>
                 </div>
                 <div className='flex items-center gap-1'>
-                    <button className='w-6 h-6 flex items-center justify-center border border-border dark:border-white/10 rounded-sm text-muted hover:text-yellow-400 hover:bg-yellow-400/10 hover:border-yellow-400/40 transition-all duration-150 cursor-pointer group'>
-                        <Minus size={10} className='transition-transform group-hover:scale-110' />
-                    </button>
-                    <button className='w-6 h-6 flex items-center justify-center border border-border dark:border-white/10 rounded-sm text-muted hover:text-green-400 hover:bg-green-400/10 hover:border-green-400/40 transition-all duration-150 cursor-pointer group'>
-                        <Square size={10} className='transition-transform group-hover:scale-110' />
-                    </button>
                     <button className='w-6 h-6 flex items-center justify-center border border-border dark:border-white/10 rounded-sm text-muted hover:text-red-400 hover:bg-red-400/10 hover:border-red-400/40 transition-all duration-150 cursor-pointer group' onClick={onClose}>
                         <X size={10} className='transition-transform group-hover:scale-110' />
                     </button>

@@ -18,8 +18,6 @@ export default function Panel({ title, children, onClose, id }) {
                     <span className='hidden sm:inline text-[10px] font-mono text-muted'>~/meetsept/{title.toLowerCase()}</span>
                 </div>
                 <div className='flex items-center gap-1'>
-                    <WmButton icon={Minus} hoverColor='text-yellow-400' hoverBg='hover:bg-yellow-400/10 hover:border-yellow-400/40' />
-                    <WmButton icon={Square} hoverColor='text-green-400' hoverBg='hover:bg-green-400/10 hover:border-green-400/40' />
                     <WmButton icon={X} hoverColor='text-red-400' hoverBg='hover:bg-red-400/10 hover:border-red-400/40' onClick={onClose} />
                 </div>
             </div>
