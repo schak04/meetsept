@@ -5,26 +5,26 @@ import { Cpu, BookOpen, Flame, Clock, ChevronRight } from 'lucide-react';
 const TRACKS = [
     {
         label: 'Data Structures and Algorithms',
-        progress: 40,
+        progress: 45,
         status: 'Active',
         note: 'Revising fundamentals, solving LeetCode problems'
     },
     {
         label: 'CS Fundamentals (OS, Networking, Architecture, DBMS)',
-        progress: 45,
+        progress: 40,
         status: 'Active',
         note: 'Theory revision alongside my coursework'
     },
     {
         label: 'Low-level Development and Systems Programming',
-        progress: 30,
+        progress: 25,
         status: 'Exploring',
         note: 'Practicing C++/C: memory management, pointers, and small systems projects'
     },
     {
         label: 'System Design',
-        progress: 25,
-        status: 'Exploring',
+        progress: 20,
+        status: 'Starting',
         note: 'Reading about scalability, caching, sharding, load balancing, distributed systems patterns'
     },
     {
