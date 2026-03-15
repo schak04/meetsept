@@ -92,7 +92,7 @@ const App = () => {
     };
 
     return (
-        <div className='h-screen w-screen overflow-hidden flex flex-col font-i relative bg-bg-primary dark:bg-dark-bg-primary transition-colors duration-1000'>
+        <div className='h-screen w-screen overflow-hidden flex flex-col font-i relative bg-bg-primary dark:bg-dark-bg-primary transition-colors duration-200'>
             <AnimatePresence>
                 {!hasStarted && (
                     <PowerOn onStart={() => setHasStarted(true)} />
