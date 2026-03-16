@@ -64,6 +64,7 @@ const INTERESTS = [
 
 const QUEUE = [
     'Qt (C++ GUI)',
+    'Next.js',
     'Rust',
     'Go',
     'Assembly (x86)',
