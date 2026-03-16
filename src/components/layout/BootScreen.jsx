@@ -4,7 +4,7 @@ import { useTheme } from '../../context/ThemeContext';
 import { Sun, Moon } from 'lucide-react';
 
 const BOOT_LOGS = [
-    "Initializing Saptaparno\'s Portfolio (MeetSept)...",
+    "Initializing Saptaparno's Portfolio (MeetSept)...",
     "Loading architectural modules...",
     "Mounting /about",
     "Mounting /skills",
