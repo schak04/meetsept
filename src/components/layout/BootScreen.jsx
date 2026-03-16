@@ -4,8 +4,8 @@ import { useTheme } from '../../context/ThemeContext';
 import { Sun, Moon } from 'lucide-react';
 
 const BOOT_LOGS = [
-    "Initializing Saptaparno's Portfolio (MeetSept)...",
-    "Loading architectural modules...",
+    "Booting Saptaparno's Portfolio (MeetSept)...",
+    "Loading core modules...",
     "Mounting /about",
     "Mounting /skills",
     "Mounting /projects",
@@ -13,9 +13,10 @@ const BOOT_LOGS = [
     "Mounting /training",
     "Mounting /cv",
     "Mounting /contact",
-    "Checking system integrity...",
-    "Optimizing workspace layout...",
-    "Starting environment...",
+    "Running system diagnostics...",
+    "Optimizing workspace...",
+    "Launching environment...",
+    "Initialization complete.",
     "READY"
 ];
 
@@ -66,7 +67,7 @@ export default function BootScreen({ onComplete }) {
                     >
                         {log === "READY" ? (
                             <span className='text-arch-blue font-bold'>[ DONE ] {log}</span>
-                        ) : log.includes("Initializing") ? (
+                        ) : log.includes("Booting") ? (
                             <span className='text-white font-bold'> --- {log} ---</span>
                         ) : (
                             <>
