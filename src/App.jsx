@@ -19,7 +19,7 @@ import { Cpu } from 'lucide-react';
 const App = () => {
     const [hasStarted, setHasStarted] = useState(false);
     const [isBooting, setIsBooting] = useState(true);
-    const [activeWindow, setActiveWindow] = useState('terminal');
+    const [activeWindow, setActiveWindow] = useState('desktop');
     const { theme } = useTheme();
 
     const renderWindowContent = () => {
