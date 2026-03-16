@@ -15,6 +15,23 @@ export default function Editor() {
     const [selectedId, setSelectedId] = useState(projectsData[0]?.id);
     const selectedProject = projectsData.find(p => p.id === selectedId);
 
+    const getStatusStyle = (status) => {
+        switch (status?.toLowerCase()) {
+            case 'ongoing':
+                return 'text-blue-400 bg-blue-400/10 border-blue-400/20';
+            case 'upcoming':
+                return 'text-yellow-400 bg-yellow-400/10 border-yellow-400/20';
+            case 'completed':
+                return 'text-green-400 bg-green-400/10 border-green-400/20';
+            case 'ongoing & currently private':
+                return 'text-red-400 bg-red-400/10 border-red-400/20';
+            case 'base version released':
+                return 'text-purple-400 bg-purple-400/10 border-purple-400/20';
+            default:
+                return 'text-muted bg-black/10 border-border';
+        }
+    };
+
     return (
         <div className='flex h-full w-full bg-bg-secondary dark:bg-dark-bg-secondary overflow-hidden border border-border dark:border-dark-border rounded-lg shadow-2xl transition-all'>
             <aside className='neovim-sidebar hidden md:flex'>
@@ -79,8 +96,15 @@ export default function Editor() {
                                         <FileCode size={32} />
                                     </div>
                                     <div>
-                                        <h2 className='text-2xl sm:text-3xl font-bold'>{selectedProject.title}</h2>
-                                        <p className='text-muted font-mono text-[10px] sm:text-xs uppercase tracking-widest mt-1'>
+                                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                                            <h2 className='text-2xl sm:text-3xl font-bold'>{selectedProject.title}</h2>
+                                            {selectedProject.status && (
+                                                <span className={`px-2 py-0.5 rounded text-[10px] font-mono border uppercase tracking-wider ${getStatusStyle(selectedProject.status)}`}>
+                                                    {selectedProject.status}
+                                                </span>
+                                            )}
+                                        </div>
+                                        <p className='text-muted font-mono text-[10px] sm:text-xs uppercase tracking-widest'>
                                             {selectedProject.tags[0]} | <span className='hidden sm:inline'>~/projects/{selectedProject.id}</span>
                                         </p>
                                     </div>
