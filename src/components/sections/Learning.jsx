@@ -67,7 +67,7 @@ const QUEUE = [
     'Next.js',
     'Rust',
     'Go',
-    'Assembly (x86)',
+    'Assembly',
     'WebAssembly',
     'GraphQL',
     'NGINX',
