@@ -31,13 +31,13 @@ const TRACKS = [
         label: 'DevOps and Cloud Computing',
         progress: 18,
         status: 'Starting',
-        note: 'Docker basics, planning to explore AWS'
+        note: 'Getting started with the basics and reading theory'
     },
     {
         label: 'Arch Linux and the Linux Ecosystem',
         progress: 35,
         status: 'Active',
-        note: 'Using daily, ricing Hyprland, learning the internals'
+        note: 'Getting comfortable with configs, ricing Hyprland, learning the internals'
     }
 ];
 
@@ -71,10 +71,12 @@ const QUEUE = [
     'WebAssembly',
     'GraphQL',
     'NGINX',
+    'Docker',
+    'AWS',
     'Kubernetes',
     'Lua (Neovim config)',
     'OpenGL / Vulkan',
-    'Raylib / SFML',
+    'Raylib / SFML'
 ];
 
 export default function Learning() {

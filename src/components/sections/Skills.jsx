@@ -66,7 +66,7 @@ const SKILL_ICONS = {
     'Git': SiGit,
     'GitHub': SiGithub,
     'Postman': SiPostman,
-    'Docker (Basics)': SiDocker
+    // 'Docker (Basics)': SiDocker
 };
 
 const SKILL_GROUPS = [
@@ -93,7 +93,7 @@ const SKILL_GROUPS = [
     {
         title: 'Tools and Environment',
         icon: TerminalIcon,
-        skills: ['Arch Linux', 'Vim', 'Neovim', 'Git', 'GitHub', 'Postman', 'Docker (Basics)']
+        skills: ['Arch Linux', 'Vim', 'Neovim', 'Git', 'GitHub', 'Postman']
     }
 ];
 
