@@ -32,7 +32,7 @@ const App = () => {
                     />
                 );
             case 'projects':
-                return <Editor />;
+                return <Editor onClose={() => setActiveWindow('terminal')} />;
             case 'about':
                 return (
                     <Panel title='ABOUT' onClose={() => setActiveWindow('terminal')}>

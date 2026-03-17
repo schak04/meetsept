@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import {
     FileCode,
@@ -11,9 +11,33 @@ import {
 } from 'lucide-react';
 import projectsData from '../../data/projects.json';
 
-export default function Editor() {
+export default function Editor({ onClose }) {
     const [selectedId, setSelectedId] = useState(projectsData[0]?.id);
+    const [cmdBuffer, setCmdBuffer] = useState("");
     const selectedProject = projectsData.find(p => p.id === selectedId);
+
+    // Vim btw (not really but kinda)
+    // TODO: make it more like Vim/Neovim eventually with more Vim keybindings -> not already though, this much is enough for now plus I'm tired
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
+            if (e.key === 'Escape') {
+                setCmdBuffer("");
+            } else if (e.key === 'Backspace') {
+                setCmdBuffer(prev => prev.slice(0, -1));
+            } else if (e.key === 'Enter') {
+                if (cmdBuffer === ':q' && onClose) {
+                    onClose();
+                }
+                setCmdBuffer("");
+            } else if (e.key.length === 1 && !e.ctrlKey && !e.metaKey && !e.altKey) {
+                setCmdBuffer(prev => prev + e.key);
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [cmdBuffer, onClose]);
 
     const getStatusStyle = (status) => {
         switch (status?.toLowerCase()) {
@@ -152,13 +176,19 @@ export default function Editor() {
                     </AnimatePresence>
                 </div>
 
-                <div className='flex items-center text-[9px] sm:text-[10px] font-bold transition-colors border-t border-border dark:border-dark-border'>
-                    <div className='bg-arch-blue text-black px-2 sm:px-4 py-1'>NORMAL</div>
-                    <div className='bg-bg-secondary dark:bg-[#1c1c1c] text-muted px-2 sm:px-4 py-1 flex-1 transition-colors truncate'>
-                        ~/projects/{selectedId}
+                <div className='flex items-center text-[9px] sm:text-[10px] font-bold transition-colors border-t border-border dark:border-dark-border min-h-[25px] sm:min-h-[28px] overflow-hidden'>
+                    <div className='bg-arch-blue text-black px-2 sm:px-4 py-1 h-full flex items-center shrink-0'>
+                        {cmdBuffer.startsWith(':') ? 'COMMAND' : 'NORMAL'}
                     </div>
-                    <div className='hidden sm:block bg-bg-secondary dark:bg-[#1c1c1c] text-arch-blue px-4 py-1 border-l border-border dark:border-white/10 transition-colors'>UTF-8</div>
-                    <div className='bg-arch-blue text-black px-2 sm:px-4 py-1 uppercase truncate max-w-20 sm:max-w-none'>{selectedProject?.tags[0] || 'FILE'}</div>
+                    <div className='bg-bg-secondary dark:bg-[#1c1c1c] text-muted px-2 sm:px-4 py-1 flex-1 transition-colors truncate h-full flex items-center'>
+                        {cmdBuffer ? (
+                            <span className="text-arch-blue">{cmdBuffer}</span>
+                        ) : (
+                            `~/projects/${selectedId}`
+                        )}
+                    </div>
+                    <div className='hidden sm:flex bg-bg-secondary dark:bg-[#1c1c1c] text-arch-blue px-4 py-1 border-l border-border dark:border-white/10 transition-colors h-full items-center shrink-0'>UTF-8</div>
+                    <div className='bg-arch-blue text-black px-2 sm:px-4 py-1 uppercase truncate max-w-20 sm:max-w-none h-full flex items-center shrink-0'>{selectedProject?.tags[0] || 'FILE'}</div>
                 </div>
             </main>
         </div>
