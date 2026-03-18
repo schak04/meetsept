@@ -40,17 +40,25 @@ export default function Terminal({ onCommand, onClose }) {
 
     const COMMANDS = ['about', 'skills', 'projects', 'learning', 'training', 'certificates', 'education', 'cv', 'contact', 'help', 'clear'];
 
+    const matches = COMMANDS.filter(cmd => cmd.startsWith(baseInput.toLowerCase()));
+    const ghostText = (matches.length > 0 && input !== matches[0] && baseInput !== '') ? matches[0] : '';
+
     const handleCommand = (e) => {
         if (e.key === 'Tab') {
             e.preventDefault();
-
-            const matches = COMMANDS.filter(cmd => cmd.startsWith(baseInput.toLowerCase()));
 
             if (matches.length > 0) {
                 const nextIndex = (suggestionIndex + 1) % matches.length;
                 setSuggestionIndex(nextIndex);
                 setInput(matches[nextIndex]);
             }
+            return;
+        }
+
+        if (e.key === 'ArrowRight' && ghostText && input === baseInput) {
+            setInput(ghostText);
+            setBaseInput(ghostText);
+            setSuggestionIndex(0);
             return;
         }
 
@@ -130,16 +138,23 @@ export default function Terminal({ onCommand, onClose }) {
                 <div className='flex gap-2 items-center'>
                     <span className='text-arch-blue'>~</span>
                     <span className='text-green-500'>$</span>
-                    <input
-                        ref={inputRef}
-                        type='text'
-                        value={input}
-                        onChange={handleInputChange}
-                        onKeyDown={handleCommand}
-                        className='flex-1 bg-transparent border-none outline-none text-text-primary dark:text-dark-text-primary'
-                        spellCheck='false'
-                        autoComplete='off'
-                    />
+                    <div className='flex-1 relative flex items-center h-full'>
+                        {baseInput && ghostText && input === baseInput && (
+                            <span className='absolute inset-0 flex items-center pointer-events-none opacity-30 text-text-primary dark:text-dark-text-primary'>
+                                {ghostText}
+                            </span>
+                        )}
+                        <input
+                            ref={inputRef}
+                            type='text'
+                            value={input}
+                            onChange={handleInputChange}
+                            onKeyDown={handleCommand}
+                            className='w-full bg-transparent border-none outline-none text-text-primary dark:text-dark-text-primary relative z-10'
+                            spellCheck='false'
+                            autoComplete='off'
+                        />
+                    </div>
                 </div>
             </div>
 
