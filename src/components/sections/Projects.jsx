@@ -48,15 +48,30 @@ export default function Projects() {
                             {project.title}
                         </h3>
 
-                        <p className='text-sm text-system-muted leading-relaxed mb-6'>
+                        <p className='text-sm text-system-muted leading-relaxed mb-4'>
                             {project.description}
                         </p>
+
+                        <div className='mb-4 space-y-3'>
+                            {project.purpose && (
+                                <div>
+                                    <h4 className='text-[10px] uppercase tracking-wider text-arch-blue/70 font-bold mb-1'>Purpose</h4>
+                                    <p className='text-xs text-system-muted'>{project.purpose}</p>
+                                </div>
+                            )}
+                            {project.learningOutcome && (
+                                <div>
+                                    <h4 className='text-[10px] uppercase tracking-wider text-arch-blue/70 font-bold mb-1'>Learning Outcome</h4>
+                                    <p className='text-xs text-system-muted italic'>{project.learningOutcome}</p>
+                                </div>
+                            )}
+                        </div>
 
                         <div className='flex flex-wrap gap-2 mt-auto'>
                             {project.tags.map(tag => (
                                 <span
                                     key={tag}
-                                    className='px-2 py-1 rounded text-[10px] font-mono bg-system-border/30 text-system-muted'
+                                    className='px-2 py-1 rounded text-[10px] font-mono bg-system-border/30 text-system-muted border border-system-border/50'
                                 >
                                     {tag}
                                 </span>

@@ -2,12 +2,11 @@
     {
         "id": "septcrawler",
         "title": "SeptCrawler",
-        "status": "upcoming",
-        "description": "Upcoming. My own search engine. Currently planning, researching, and working on designing its architecture.",
+        "status": "upcoming & currently private",
+        "description": "A custom search engine architecture currently being designed, focused on building a scalable pipeline for web crawling, indexing, and retrieval.",
+        "purpose": "To design a multi-threaded crawling system in C++, exploring asynchronous I/O patterns with Node.js for request handling, and structuring efficient indexing and retrieval mechanisms.",
+        "learningOutcome": "To deeply understand how search engines work internally by building core components from scratch, instead of relying on existing abstractions.",
         "tags": [
-            "Search Engine",
-            "Backend Systems Project",
-            "Low-Level",
             "C++",
             "Node.js"
         ],
@@ -20,9 +19,10 @@
         "id": "workshophub",
         "title": "WorkshopHub",
         "status": "ongoing",
-        "description": "Ongoing. Workshop management platform with registrations, attendance, materials, feedback, and certificates.",
+        "description": "A full-stack workshop management platform with role-based access control for handling the lifecycle of educational events, from registrations to certificate issuance.",
+        "purpose": "To build a centralised platform that reduces the administrative overhead of organising workshops, providing a seamless experience for both organisers and participants.",
+        "learningOutcome": "Solid understanding of full-stack web development with the MERN stack, implementing secure JWT authentication and bcrypt-based password hashing, managing complex MongoDB relationships, and designing responsive UI with React.js and Tailwind CSS.",
         "tags": [
-            "Full-Stack Web App",
             "Node.js",
             "Express.js",
             "MongoDB",
@@ -41,23 +41,29 @@
         "id": "priorify",
         "title": "Priorify",
         "status": "base version released",
-        "description": "Priority-based task manager. Base version (v1.0.0) released. Console-first app. GUI version planned using Qt.",
+        "description": "A productivity-focused task manager that utilises priority-based ordering to help users focus on what truly matters. Features a clean console interface with a planned transition to a GUI.",
+        "purpose": "To develop a lightweight, distraction-free tool for personal task management that prioritises efficiency and ease of use.",
+        "learningOutcome": "Hands-on experience with C++ STL containers, persistent storage using SQLite, and designing user-centric CLI workflows.",
         "tags": [
-            "Desktop App",
             "C++",
             "STL",
-            "SQLite"
+            "SQLite",
+            "Data Structures",
+            "std::priority_queue",
+            "std::vector"
         ],
         "links": {
             "github": "https://github.com/schak04/priorify",
-            "demo": null
+            "demo": "https://github.com/schak04/priorify/releases/tag/v1.0.0"
         }
     },
     {
         "id": "url-shortener",
         "title": "URL Shortener",
         "status": "completed",
-        "description": "A lightweight URL shortening service built using Node.js, Express, MongoDB, and Mongoose.",
+        "description": "A simple URL shortening service that generates compact aliases for long URLs.",
+        "purpose": "To understand how URL shorteners work by building a core backend service using Node.js, Express, MongoDB and Mongoose.",
+        "learningOutcome": "Worked with Express routing and middleware, and implemented basic data storage and retrieval using MongoDB.",
         "tags": [
             "Node.js",
             "Express.js",
@@ -73,22 +79,31 @@
         "id": "mydayoff",
         "title": "MyDayOff",
         "status": "completed",
-        "description": "A full-stack HR workflow simulation for managing employee (and manager) leave and reimbursement requests and approvals.",
+        "description": "An HR automation tool that simulates real-world leave and reimbursement approval workflows, featuring hierarchical roles and real-time status updates.",
+        "purpose": "To build a practical application of role-based access control in a multi-user system with approval workflows.",
+        "learningOutcome": "Gained experience in designing multi-user workflows and implementing role-based access control using the MERN stack.",
         "tags": [
-            "MERN",
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Mongoose",
             "JWT",
-            "bcrypt"
+            "bcrypt",
+            "React.js",
+            "Tailwind CSS"
         ],
         "links": {
             "github": "https://github.com/schak04/mydayoff",
-            "demo": null
+            "demo": "https://mydayoff.vercel.app/"
         }
     },
     {
         "id": "fintracker",
         "title": "FinTracker",
         "status": "completed",
-        "description": "A personal finance tracker app that lets users manage their income and expenses.",
+        "description": "A visual personal finance dashboard that provides insights into spending habits through charts and categorised transaction tracking.",
+        "purpose": "To create a tool for better financial awareness using data visualization techniques.",
+        "learningOutcome": "Explored data visualization with Recharts and real-time database integration with Firebase.",
         "tags": [
             "React.js",
             "Firebase",
@@ -96,14 +111,16 @@
         ],
         "links": {
             "github": "https://github.com/schak04/fintracker",
-            "demo": null
+            "demo": "https://fintracker-neon.vercel.app"
         }
     },
     {
         "id": "karaoke-app",
         "title": "Karaoke App",
         "status": "completed",
-        "description": "A console karaoke app that fetches lyrics from the Genius API, downloads song audio from YouTube using yt-dlp, and displays colour-highlighted lyrics in real-time.",
+        "description": "A CLI-based karaoke app that fetches song lyrics using the Genius API, downloads audio using yt-dlp, and displays color-highlighted lyrics in sync with the music.",
+        "purpose": "To build a Python application that combines lyric fetching and audio playback using the Genius API and external tools.",
+        "learningOutcome": "Gained experience working with APIs (Genius API), handling external tools like yt-dlp and FFmpeg, and managing audio playback in Python.",
         "tags": [
             "Python",
             "FFmpeg",
@@ -113,18 +130,19 @@
         ],
         "links": {
             "github": "https://github.com/schak04/karaoke-app",
-            "demo": null
+            "demo": "https://github.com/schak04/karaoke-app/releases/tag/v1.0.0"
         }
     },
     {
         "id": "survivors-clone",
         "title": "Survivors (Clone)",
         "status": "ongoing",
-        "description": "Learning game development by making a Vampire Survivors clone in Godot. Work in progress.",
+        "description": "A 2D top-down action game in Godot inspired by the 'bullet heaven' genre, featuring player movement, basic enemy AI, and level-up mechanics.",
+        "purpose": "To learn the fundamentals of 2D game development, including player control, collision detection, and simple AI behaviors.",
+        "learningOutcome": "Gaining experience with GDScript, Godot's scene tree, and implementing basic game systems like player upgrades and enemy spawning.",
         "tags": [
             "GDScript",
-            "Godot",
-            "game dev"
+            "Godot"
         ],
         "links": {
             "github": "https://github.com/schak04/survivors-clone",
@@ -135,11 +153,12 @@
         "id": "coin-collector",
         "title": "Coin Collector",
         "status": "completed",
-        "description": "A simple coin collector micro game built in Unity.",
+        "description": "A 3D micro-game focused on smooth player movement and item collection mechanics, built to explore the Unity Editor and C# scripting.",
+        "purpose": "An introductory project to get familiar with the 3D development workflow and Unity's component-based architecture.",
+        "learningOutcome": "Learned about 3D physics and using C# scripts to handle game logic and UI updates in Unity.",
         "tags": [
             "C#",
-            "Unity",
-            "game dev"
+            "Unity"
         ],
         "links": {
             "github": "https://github.com/schak04/coin-collector",
@@ -150,11 +169,11 @@
         "id": "snake-game",
         "title": "Snake Game",
         "status": "ongoing & currently private",
-        "description": "Currently private. The classic snake game I'm writing in C++ for learning and fun.",
+        "description": "The classic Snake game, currently being built from scratch in C++ to practice low-level programming and game logic.",
+        "purpose": "To practice implementing game mechanics and logic in C++ without using any game engine or framework.",
+        "learningOutcome": "Gaining hands-on experience with C++ programming, handling user input, implementing game loops, and basic grid-based movement algorithms.",
         "tags": [
-            "C++",
-            "game dev",
-            "engine-free"
+            "C++"
         ],
         "links": {
             "github": "https://github.com/schak04/snake-game",
@@ -165,7 +184,9 @@
         "id": "file-deletion-tool",
         "title": "File Deletion Tool",
         "status": "completed",
-        "description": "A simple tool I made while learning Node.js that lets users delete a specific file by simply typing in its name in the input field and clicking on the delete button.",
+        "description": "A utility tool that provides a simple web interface for managing file deletion on a server, serving as a practical exercise in backend file system operations.",
+        "purpose": "To understand Node.js core modules like 'fs' and safely handle file operations via a web interface.",
+        "learningOutcome": "Gained hands-on experience with file handling in Node.js, performing basic server-side validation, and serving static files with Express.",
         "tags": [
             "Node.js",
             "Express",
@@ -173,7 +194,7 @@
             "CSS"
         ],
         "links": {
-            "github": "https://github.com/schak04/snake-game",
+            "github": "https://github.com/schak04/file-deletion-tool",
             "demo": null
         }
     },
@@ -181,7 +202,9 @@
         "id": "password-generator-js",
         "title": "Password Generator",
         "status": "completed",
-        "description": "A simple password generator web app that lets users copy the generated password(s) to their clipboard.",
+        "description": "A secure, client-side password generator that allows users to customize length and character sets for strong password creation.",
+        "purpose": "To build a practical tool while practicing DOM manipulation and string operations in pure JavaScript.",
+        "learningOutcome": "Practised creating accessible UIs, handling clipboard interactions, and implementing randomization logic in the browser.",
         "tags": [
             "JavaScript",
             "HTML",
@@ -189,14 +212,16 @@
         ],
         "links": {
             "github": "https://github.com/schak04/password-generator-js",
-            "demo": null
+            "demo": "https://schak04.github.io/password-generator-js/"
         }
     },
     {
         "id": "roll-the-dice",
         "title": "Roll the Dice",
         "status": "completed",
-        "description": "A dice roller that lets users roll as many dice as they want all at once. Made while learning JavaScript.",
+        "description": "An interactive dice-rolling application that supports concurrent rolling of multiple dice with dynamic visual updates.",
+        "purpose": "A small project to practice JavaScript logic and responsive CSS design.",
+        "learningOutcome": "Gained experience implementing interactive UI elements, handling randomization in JavaScript, and adding visual effects with CSS.",
         "tags": [
             "JavaScript",
             "HTML",
@@ -204,7 +229,7 @@
         ],
         "links": {
             "github": "https://github.com/schak04/roll-the-dice",
-            "demo": null
+            "demo": "https://schak04.github.io/roll-the-dice/"
         }
     }
 ]

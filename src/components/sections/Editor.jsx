@@ -55,6 +55,8 @@ export default function Editor({ onClose }) {
                 return 'text-green-400 bg-green-400/10 border-green-400/20';
             case 'ongoing & currently private':
                 return 'text-red-400 bg-red-400/10 border-red-400/20';
+            case 'upcoming & currently private':
+                return 'text-red-400 bg-red-400/10 border-red-400/20';
             case 'base version released':
                 return 'text-purple-400 bg-purple-400/10 border-purple-400/20';
             default:
@@ -169,6 +171,24 @@ export default function Editor({ onClose }) {
                                         {selectedProject.description}
                                     </div>
 
+                                    {selectedProject.purpose && (
+                                        <div className='p-4 bg-black/5 dark:bg-white/5 rounded-md border-l-4 border-yellow-400/50 transition-colors'>
+                                            <h4 className='text-[10px] font-mono text-yellow-400 uppercase mb-2 font-bold'>Purpose</h4>
+                                            <p className='font-mono text-xs sm:text-sm leading-relaxed text-muted'>
+                                                {selectedProject.purpose}
+                                            </p>
+                                        </div>
+                                    )}
+
+                                    {selectedProject.learningOutcome && (
+                                        <div className='p-4 bg-black/5 dark:bg-white/5 rounded-md border-l-4 border-emerald-400/50 transition-colors'>
+                                            <h4 className='text-[10px] font-mono text-emerald-400 uppercase mb-2 font-bold'>Learning Outcome</h4>
+                                            <p className='font-mono text-xs sm:text-sm leading-relaxed text-muted italic'>
+                                                {selectedProject.learningOutcome}
+                                            </p>
+                                        </div>
+                                    )}
+
                                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                         {selectedProject.links.github && (
                                             <a
@@ -185,7 +205,7 @@ export default function Editor({ onClose }) {
                                                 target="_blank"
                                                 className="btn btn-primary flex items-center justify-center gap-2 font-mono text-xs"
                                             >
-                                                <ExternalLink size={14} /> live view
+                                                <ExternalLink size={14} className='text-black' /> <span className='text-black'>live view / get app</span>
                                             </a>
                                         )}
                                     </div>
