@@ -6,15 +6,21 @@ import {
     ChevronRight,
     Github,
     ExternalLink,
-    // Terminal as TerminalIcon,
-    Search
+    Search,
+    X
 } from 'lucide-react';
 import projectsData from '../../data/projects.json';
 
 export default function Editor({ onClose }) {
     const [selectedId, setSelectedId] = useState(projectsData[0]?.id);
     const [cmdBuffer, setCmdBuffer] = useState("");
+    const [showSplashHint, setShowSplashHint] = useState(true);
     const selectedProject = projectsData.find(p => p.id === selectedId);
+
+    useEffect(() => {
+        const timer = setTimeout(() => setShowSplashHint(false), 4000);
+        return () => clearTimeout(timer);
+    }, []);
 
     // Vim btw (not really but kinda)
     // TODO: make it more like Vim/Neovim eventually with more Vim keybindings -> not already though, this much is enough for now plus I'm tired
@@ -57,7 +63,20 @@ export default function Editor({ onClose }) {
     };
 
     return (
-        <div className='flex h-full w-full bg-bg-secondary dark:bg-dark-bg-secondary overflow-hidden border border-border dark:border-dark-border rounded-lg shadow-2xl transition-all'>
+        <div className='flex h-full w-full bg-bg-secondary dark:bg-dark-bg-secondary overflow-hidden border border-border dark:border-dark-border rounded-lg shadow-2xl transition-all relative'>
+            <AnimatePresence>
+                {showSplashHint && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        className="absolute bottom-12 right-6 z-40 px-4 py-2 bg-arch-blue text-black font-mono text-xs rounded shadow-2xl pointer-events-none flex items-center gap-2"
+                    >
+                        <span>Type <span className="font-bold">:q</span> to exit</span>
+                    </motion.div>
+                )}
+            </AnimatePresence>
+
             <aside className='neovim-sidebar hidden md:flex'>
                 <div className='p-4 border-b border-border dark:border-dark-border flex items-center justify-between'>
                     <span className='text-[10px] font-bold text-arch-blue uppercase tracking-widest'> Projects</span>
@@ -91,18 +110,29 @@ export default function Editor({ onClose }) {
             </aside>
 
             <main className='flex-1 flex flex-col min-w-0 bg-bg-primary dark:bg-dark-bg-primary text-text-primary dark:text-dark-text-primary transition-colors'>
-                <div className='flex bg-bg-secondary/50 dark:bg-dark-bg-secondary/50 border-b border-border dark:border-dark-border transition-colors overflow-x-auto custom-scrollbar whitespace-nowrap no-scrollbar'>
-                    {projectsData.map(project => (
-                        <div
-                            key={project.id}
-                            onClick={() => setSelectedId(project.id)}
-                            className={`px-3 sm:px-4 py-2 text-[10px] sm:text-xs font-mono border-r border-border dark:border-dark-border cursor-pointer flex items-center gap-2 shrink-0 transition-colors ${selectedId === project.id ? 'bg-bg-primary dark:bg-dark-bg-primary text-text-primary dark:text-dark-text-primary border-t-2 border-t-arch-blue' : 'text-muted hover:bg-black/5 dark:hover:bg-white/5'
-                                }`}
+                <div className='flex bg-bg-secondary/50 dark:bg-dark-bg-secondary/50 border-b border-border dark:border-dark-border transition-colors overflow-x-auto custom-scrollbar whitespace-nowrap no-scrollbar relative items-center'>
+                    <div className="flex flex-1 overflow-x-auto no-scrollbar">
+                        {projectsData.map(project => (
+                            <div
+                                key={project.id}
+                                onClick={() => setSelectedId(project.id)}
+                                className={`px-3 sm:px-4 py-2 text-[10px] sm:text-xs font-mono border-r border-border dark:border-dark-border cursor-pointer flex items-center gap-2 shrink-0 transition-colors ${selectedId === project.id ? 'bg-bg-primary dark:bg-dark-bg-primary text-text-primary dark:text-dark-text-primary border-t-2 border-t-arch-blue' : 'text-muted hover:bg-black/5 dark:hover:bg-white/5'
+                                    }`}
+                            >
+                                <FileCode size={12} />
+                                {project.id}
+                            </div>
+                        ))}
+                    </div>
+
+                    <div className="flex items-center px-3 border-l border-border dark:border-dark-border h-full">
+                        <button
+                            onClick={onClose}
+                            className="p-1 text-muted hover:text-red-400 hover:bg-red-400/10 rounded transition-colors"
                         >
-                            <FileCode size={12} />
-                            {project.id}
-                        </div>
-                    ))}
+                            <X size={16} />
+                        </button>
+                    </div>
                 </div>
 
                 <div className='flex-1 p-4 sm:p-8 overflow-y-auto custom-scrollbar relative bg-transparent'>
@@ -117,7 +147,7 @@ export default function Editor({ onClose }) {
                             >
                                 <div className="flex flex-col sm:flex-row sm:items-center gap-4 mb-6">
                                     <div className="p-3 bg-arch-blue/10 rounded-lg text-arch-blue w-fit">
-                                        <FileCode size={32} />
+                                        <FileCode size={42} />
                                     </div>
                                     <div>
                                         <div className="flex flex-wrap items-center gap-2 mb-1">
@@ -180,11 +210,16 @@ export default function Editor({ onClose }) {
                     <div className='bg-arch-blue text-black px-2 sm:px-4 py-1 h-full flex items-center shrink-0'>
                         {cmdBuffer.startsWith(':') ? 'COMMAND' : 'NORMAL'}
                     </div>
-                    <div className='bg-bg-secondary dark:bg-[#1c1c1c] text-muted px-2 sm:px-4 py-1 flex-1 transition-colors truncate h-full flex items-center'>
+                    <div className='bg-bg-secondary dark:bg-[#1c1c1c] text-muted px-2 sm:px-4 py-1 flex-1 transition-colors truncate h-full flex items-center group relative'>
                         {cmdBuffer ? (
                             <span className="text-arch-blue">{cmdBuffer}</span>
                         ) : (
-                            `~/projects/${selectedId}`
+                            <div className="flex items-center gap-2">
+                                <span className="opacity-100 transition-opacity">~/projects/{selectedId}</span>
+                                <span className="opacity-70 text-[18px] sm:text-[12px] text-arch-blue/80 font-normal ml-2 tracking-tighter">
+                                    [type :q to exit]
+                                </span>
+                            </div>
                         )}
                     </div>
                     <div className='hidden sm:flex bg-bg-secondary dark:bg-[#1c1c1c] text-arch-blue px-4 py-1 border-l border-border dark:border-white/10 transition-colors h-full items-center shrink-0'>UTF-8</div>
@@ -194,21 +229,3 @@ export default function Editor({ onClose }) {
         </div>
     );
 }
-
-const X = ({ className, size, onClick }) => (
-    <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width={size || 14}
-        height={size || 14}
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className={className}
-        onClick={onClick}
-    >
-        <path d="M18 6 6 18" /><path d="m6 6 12 12" />
-    </svg>
-);
