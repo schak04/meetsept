@@ -7,7 +7,7 @@ Available commands:
   about           - Learn about Saptaparno
   skills          - View his skills
   projects        - View his projects
-  learning        - Current & future-planned explorations
+  learning        - Current & future-planned explorations + stats
   training        - Trainings undergone
   cv              - View his CV
   contact         - Contact details
