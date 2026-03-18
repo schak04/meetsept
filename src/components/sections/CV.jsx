@@ -1,7 +1,7 @@
 import { Download, ExternalLink, FileText } from 'lucide-react';
 
 export default function CV() {
-    const cvPath = '/assets/SaptaparnoChakrabortyCV.pdf';
+    const cvPath = 'public/SaptaparnoChakrabortyCV.pdf';
 
     return (
         <div className='h-full flex flex-col space-y-4'>
