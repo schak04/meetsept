@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Cpu, BookOpen, Flame, Clock, ChevronRight } from 'lucide-react';
+import { Cpu, BookOpen, Flame, Clock, ChevronRight, Github, Code, Trophy, Loader2 } from 'lucide-react';
 
 const TRACKS = [
     {
@@ -79,21 +79,126 @@ const QUEUE = [
     'Raylib / SFML'
 ];
 
+function HackerRankBadges({ username }) {
+    const [svgContent, setSvgContent] = useState('');
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function fetchAndFilterBadges() {
+            try {
+                const response = await fetch(`https://hackerrank-badges.vercel.app/${username}?theme=dark`);
+                const svgText = await response.text();
+
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(svgText, 'image/svg+xml');
+                const rootSvg = doc.querySelector('svg');
+
+                if (!rootSvg) throw new Error('Invalid SVG');
+
+                rootSvg.style.outline = 'none';
+                rootSvg.setAttribute('style', '');
+
+                const textElements = Array.from(doc.querySelectorAll('text'));
+                textElements.forEach(text => {
+                    const fontSize = text.getAttribute('font-size');
+                    const isGlobalText = text.parentElement === rootSvg && (fontSize === '24' || fontSize === '14');
+
+                    if (isGlobalText) {
+                        text.setAttribute('fill', 'currentColor');
+                    } else {
+                        text.setAttribute('fill', 'black');
+                    }
+                    text.style.fontFamily = 'var(--font-mono, monospace)';
+                });
+
+                const badges = Array.from(rootSvg.querySelectorAll(':scope > svg'));
+
+                const filteredBadges = badges.filter(badge => {
+                    const paths = Array.from(badge.querySelectorAll('path'));
+                    const isGoldOrSilver = paths.some(path => {
+                        const fill = path.getAttribute('fill') || '';
+                        return fill.includes('gold') || fill.includes('silver');
+                    });
+
+                    if (!isGoldOrSilver) {
+                        badge.remove();
+                        return false;
+                    }
+                    return true;
+                });
+
+                const badgeWidth = 91;
+                const badgeSpacing = 15;
+                const startY = 60;
+
+                const totalBadgesWidth = filteredBadges.length * badgeWidth + (filteredBadges.length - 1) * badgeSpacing;
+                const startX = Math.max(10, (500 - totalBadgesWidth) / 2);
+
+                filteredBadges.forEach((badge, index) => {
+                    const newX = startX + index * (badgeWidth + badgeSpacing);
+                    badge.setAttribute('x', newX);
+                    badge.setAttribute('y', startY);
+                });
+
+                const nameText = doc.querySelector('text[font-size="24"]');
+                const handleText = doc.querySelector('text[font-size="14"]');
+                if (nameText) {
+                    nameText.setAttribute('x', '250');
+                    nameText.setAttribute('text-anchor', 'middle');
+                }
+                if (handleText) {
+                    handleText.setAttribute('x', '250');
+                    handleText.setAttribute('text-anchor', 'middle');
+                    handleText.setAttribute('y', '45');
+                }
+
+                const badgesLabel = Array.from(doc.querySelectorAll('g')).find(g => g.textContent === 'Badges');
+                if (badgesLabel) badgesLabel.remove();
+
+                rootSvg.setAttribute('viewBox', '0 0 500 180');
+                rootSvg.setAttribute('width', '100%');
+                rootSvg.setAttribute('height', 'auto');
+                rootSvg.style.maxWidth = '500px';
+
+                setSvgContent(new XMLSerializer().serializeToString(doc));
+            } catch (err) {
+                console.error('Failed to fetch HackerRank badges:', err);
+            } finally {
+                setLoading(false);
+            }
+        }
+
+        fetchAndFilterBadges();
+    }, [username]);
+
+    if (loading) return (
+        <div className='flex items-center justify-center p-8 bg-black/5 dark:bg-white/5 border border-border dark:border-dark-border rounded-xl min-h-[150px]'>
+            <Loader2 className='w-6 h-6 animate-spin text-arch-blue/50' />
+        </div>
+    );
+
+    return (
+        <div
+            className='flex justify-center p-4 bg-black/5 dark:bg-white/5 border border-border dark:border-dark-border rounded-xl w-full text-black dark:text-white transition-colors duration-200'
+            dangerouslySetInnerHTML={{ __html: svgContent }}
+        />
+    );
+}
+
 export default function Learning() {
     const [activeTab, setActiveTab] = useState('tracks');
 
     return (
         <div className='space-y-6 max-w-4xl mx-auto'>
             <div className='flex gap-1 font-mono text-xs border-b border-border dark:border-dark-border'>
-                {['tracks', 'interests', 'queue'].map(tab => (
+                {['tracks', 'interests', 'queue', 'stats'].map(tab => (
                     <button
                         key={tab}
                         onClick={() => setActiveTab(tab)}
-                        className={`px-4 py-2 transition-colors border-b-2 -mb-px ${
-                            activeTab === tab
-                                ? 'border-arch-blue text-arch-blue'
-                                : 'border-transparent text-muted hover:text-text-primary dark:hover:text-dark-text-primary'
-                        }`}
+                        className={`px-4 py-2 transition-colors border-b-2 -mb-px ${activeTab === tab
+                            ? 'border-arch-blue text-arch-blue'
+                            : 'border-transparent text-muted hover:text-text-primary dark:hover:text-dark-text-primary'
+                            }`}
                     >
                         {tab}
                     </button>
@@ -101,35 +206,20 @@ export default function Learning() {
             </div>
 
             {activeTab === 'tracks' && (
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className='space-y-5'
-                >
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className='space-y-5'>
                     <p className='text-xs font-mono text-muted'>
                         <ChevronRight size={10} className='inline mr-1 text-arch-blue' />
                         Active learning tracks with approximate progress
                     </p>
                     {TRACKS.map((track, i) => (
-                        <motion.div
-                            key={track.label}
-                            initial={{ opacity: 0, x: -10 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ delay: i * 0.07 }}
-                            className='space-y-2'
-                        >
+                        <motion.div key={track.label} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.07 }} className='space-y-2'>
                             <div className='flex items-start justify-between gap-4'>
                                 <span className='text-sm font-mono font-medium'>{track.label}</span>
                                 <StatusBadge status={track.status} />
                             </div>
                             <p className='text-[11px] text-muted font-mono'>{track.note}</p>
                             <div className='relative h-1.5 w-full bg-black/5 dark:bg-white/5 rounded-full overflow-hidden border border-border dark:border-dark-border'>
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    animate={{ width: `${track.progress}%` }}
-                                    transition={{ duration: 1, delay: 0.3 + i * 0.07 }}
-                                    className='h-full bg-arch-blue rounded-full'
-                                />
+                                <motion.div initial={{ width: 0 }} animate={{ width: `${track.progress}%` }} transition={{ duration: 1, delay: 0.3 + i * 0.07 }} className='h-full bg-arch-blue rounded-full' />
                             </div>
                         </motion.div>
                     ))}
@@ -137,31 +227,17 @@ export default function Learning() {
             )}
 
             {activeTab === 'interests' && (
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className='grid grid-cols-1 gap-4'
-                >
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className='grid grid-cols-1 gap-4'>
                     {INTERESTS.map((item, i) => (
-                        <motion.div
-                            key={item.area}
-                            initial={{ opacity: 0, y: 15 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            className='p-5 bg-black/5 dark:bg-white/5 border border-border dark:border-dark-border rounded-xl hover:border-arch-blue/50 transition-all group'
-                        >
+                        <motion.div key={item.area} initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className='p-5 bg-black/5 dark:bg-white/5 border border-border dark:border-dark-border rounded-xl hover:border-arch-blue/50 transition-all group'>
                             <div className='flex items-center gap-3 mb-3'>
-                                <div className='p-2 bg-arch-blue/10 rounded-lg text-arch-blue group-hover:bg-arch-blue group-hover:text-black transition-all'>
-                                    <item.icon size={18} />
-                                </div>
+                                <div className='p-2 bg-arch-blue/10 rounded-lg text-arch-blue group-hover:bg-arch-blue group-hover:text-black transition-all'><item.icon size={18} /></div>
                                 <h3 className='font-bold text-sm'>{item.area}</h3>
                             </div>
                             <p className='text-sm text-muted leading-relaxed mb-3'>{item.description}</p>
                             <div className='flex flex-wrap gap-2'>
                                 {item.tags.map(tag => (
-                                    <span key={tag} className='px-2 py-0.5 bg-arch-blue/10 rounded text-[10px] font-mono text-arch-blue'>
-                                        {tag}
-                                    </span>
+                                    <span key={tag} className='px-2 py-0.5 bg-arch-blue/10 rounded text-[10px] font-mono text-arch-blue'>{tag}</span>
                                 ))}
                             </div>
                         </motion.div>
@@ -170,28 +246,71 @@ export default function Learning() {
             )}
 
             {activeTab === 'queue' && (
-                <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className='space-y-3'
-                >
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className='space-y-3'>
                     <p className='text-xs font-mono text-muted'>
                         <ChevronRight size={10} className='inline mr-1 text-arch-blue' />
                         Technologies and topics queued up to learn in no particular order
                     </p>
                     <div className='grid grid-cols-1 sm:grid-cols-2 gap-2'>
                         {QUEUE.map((item, i) => (
-                            <motion.div
-                                key={item}
-                                initial={{ opacity: 0, x: -10 }}
-                                animate={{ opacity: 1, x: 0 }}
-                                transition={{ delay: i * 0.05 }}
-                                className='flex items-center gap-3 p-3 bg-black/5 dark:bg-white/5 border border-border dark:border-dark-border rounded-lg hover:border-arch-blue/40 transition-colors group'
-                            >
+                            <motion.div key={item} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.05 }} className='flex items-center gap-3 p-3 bg-black/5 dark:bg-white/5 border border-border dark:border-dark-border rounded-lg hover:border-arch-blue/40 transition-colors group'>
                                 <Clock size={12} className='text-muted group-hover:text-arch-blue transition-colors shrink-0' />
                                 <span className='text-sm font-mono group-hover:text-arch-blue transition-colors'>{item}</span>
                             </motion.div>
                         ))}
+                    </div>
+                </motion.div>
+            )}
+
+            {activeTab === 'stats' && (
+                <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className='space-y-6'
+                >
+                    <div className='space-y-4'>
+                        <div className='flex items-center gap-2 text-xs font-mono text-muted'>
+                            <Github size={12} className='text-arch-blue' />
+                            <span>GitHub Activity</span>
+                        </div>
+                        <div className='p-4 bg-black/5 dark:bg-white/5 border border-border dark:border-dark-border rounded-xl overflow-hidden'>
+                            <img
+                                src="https://ghchart.rshah.org/1793d1/schak04"
+                                alt="GitHub Contributions"
+                                className='w-full filter dark:brightness-110'
+                            />
+                        </div>
+                        <div className='flex justify-center'>
+                            <img
+                                src="https://github-readme-stats.vercel.app/api?username=schak04&show_icons=true&theme=nord&hide_border=true&bg_color=00000000&title_color=1793d1&icon_color=1793d1&text_color=8b949e&hide_rank=true"
+                                alt="GitHub Stats"
+                                className='w-full max-w-md'
+                            />
+                        </div>
+                    </div>
+
+                    <div className='grid grid-cols-1 sm:grid-cols-2 gap-4'>
+                        <div className='space-y-3'>
+                            <div className='flex items-center gap-2 text-xs font-mono text-muted'>
+                                <Code size={12} className='text-arch-blue' />
+                                <span>LeetCode Stats</span>
+                            </div>
+                            <div className='flex justify-center p-4 bg-black/5 dark:bg-white/5 border border-border dark:border-dark-border rounded-xl'>
+                                <img
+                                    src="https://leetcard.jacoblin.cool/schak04?theme=dark&font=IBM%20Plex%20Mono"
+                                    alt="LeetCode Stats"
+                                    className='max-w-full'
+                                />
+                            </div>
+                        </div>
+
+                        <div className='space-y-3'>
+                            <div className='flex items-center gap-2 text-xs font-mono text-muted'>
+                                <Trophy size={12} className='text-arch-blue' />
+                                <span>HackerRank Badges (Gold/Silver)</span>
+                            </div>
+                            <HackerRankBadges username="schak04" />
+                        </div>
                     </div>
                 </motion.div>
             )}
