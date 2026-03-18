@@ -9,6 +9,7 @@ Available commands:
   projects        - View his projects
   learning        - Current & future-planned explorations + stats
   training        - Trainings undergone
+  certificates    - Professional certifications
   cv              - View his CV
   contact         - Contact details
   help            - List all commands
@@ -43,7 +44,7 @@ export default function Terminal({ onCommand, onClose }) {
                 setHistory([]);
             } else if (cmd === 'help') {
                 setHistory([...newHistory, { type: 'output', content: HELP_MESSAGE }]);
-            } else if (['about', 'skills', 'projects', 'learning', 'training', 'cv', 'contact'].includes(cmd)) {
+            } else if (['about', 'skills', 'projects', 'learning', 'training', 'certificates', 'cv', 'contact'].includes(cmd)) {
                 setHistory([...newHistory, { type: 'output', content: `Executing ${cmd}...` }]);
                 onCommand(cmd);
             } else if (cmd !== '') {
