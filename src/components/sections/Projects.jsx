@@ -44,9 +44,16 @@ export default function Projects() {
                             </div>
                         </div>
 
-                        <h3 className='text-xl font-bold mb-2 group-hover:text-arch-blue transition-colors'>
-                            {project.title}
-                        </h3>
+                        <div className='flex items-baseline justify-between mb-2'>
+                            <h3 className='text-xl font-bold group-hover:text-arch-blue transition-colors'>
+                                {project.title}
+                            </h3>
+                            {project.startDate && (
+                                <span className='text-[12px] font-mono text-arch-blue ml-2 shrink-0'>
+                                    {project.startDate} - {project.endDate || 'Present'}
+                                </span>
+                            )}
+                        </div>
 
                         <p className='text-sm text-system-muted leading-relaxed mb-4'>
                             {project.description}

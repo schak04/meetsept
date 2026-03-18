@@ -160,9 +160,16 @@ export default function Editor({ onClose }) {
                                                 </span>
                                             )}
                                         </div>
-                                        <p className='text-muted font-mono text-[10px] sm:text-xs uppercase tracking-widest'>
-                                            {selectedProject.tags[0]} | <span className='hidden sm:inline'>~/projects/{selectedProject.id}</span>
-                                        </p>
+                                        <div className='flex items-center gap-3 mb-1'>
+                                            <p className='text-muted font-mono text-[10px] sm:text-xs uppercase tracking-widest'>
+                                                {selectedProject.tags[0]} | <span className='hidden sm:inline'>~/projects/{selectedProject.id}</span>
+                                            </p>
+                                            {selectedProject.startDate && (
+                                                <span className='text-[12px] font-mono text-arch-blue'>
+                                                    [{selectedProject.startDate} - {selectedProject.endDate || 'Present'}]
+                                                </span>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
 
