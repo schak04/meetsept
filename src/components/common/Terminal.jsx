@@ -11,6 +11,7 @@ Available commands:
   training        - Trainings undergone
   certificates    - Professional certifications
   education       - Academic background
+  blog            - Technical writing/blog
   cv              - View his CV
   contact         - Contact details
   help            - List all commands
@@ -38,7 +39,7 @@ export default function Terminal({ onCommand, onClose }) {
         }
     }, [history]);
 
-    const COMMANDS = ['about', 'skills', 'projects', 'learning', 'training', 'certificates', 'education', 'cv', 'contact', 'help', 'clear'];
+    const COMMANDS = ['about', 'skills', 'projects', 'learning', 'training', 'certificates', 'education', 'blog', 'cv', 'contact', 'help', 'clear'];
 
     const matches = COMMANDS.filter(cmd => cmd.startsWith(baseInput.toLowerCase()));
     const ghostText = (matches.length > 0 && input !== matches[0] && baseInput !== '') ? matches[0] : '';
