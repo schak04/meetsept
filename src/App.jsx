@@ -15,6 +15,7 @@ import Training from './components/sections/Training';
 import Contact from './components/sections/Contact';
 import CV from './components/sections/CV';
 import Certificates from './components/sections/Certificates';
+import Education from './components/sections/Education';
 import { Cpu } from 'lucide-react';
 
 const App = () => {
@@ -68,6 +69,12 @@ const App = () => {
                 return (
                     <Panel title='CERTIFICATES' onClose={() => setActiveWindow('terminal')}>
                         <Certificates />
+                    </Panel>
+                );
+            case 'education':
+                return (
+                    <Panel title='EDUCATION' onClose={() => setActiveWindow('terminal')}>
+                        <Education />
                     </Panel>
                 );
             case 'contact':
