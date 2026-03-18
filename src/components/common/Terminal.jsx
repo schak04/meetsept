@@ -21,7 +21,7 @@ export default function Terminal({ onCommand, onClose }) {
     const [input, setInput] = useState('');
     const [history, setHistory] = useState([
         { type: 'output', content: "Welcome to MeetSept (Saptaparno's Portfolio)" },
-        { type: 'output', content: 'Type "help" to see available commands.' }
+        { type: 'output', content: 'Type "help" to see available commands. Press Tab key to autocomplete or cycle through commands.' }
     ]);
     const [suggestionIndex, setSuggestionIndex] = useState(-1);
     const [baseInput, setBaseInput] = useState('');
