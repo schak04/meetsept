@@ -23,6 +23,8 @@ export default function Terminal({ onCommand, onClose }) {
         { type: 'output', content: "Welcome to MeetSept (Saptaparno's Portfolio)" },
         { type: 'output', content: 'Type "help" to see available commands.' }
     ]);
+    const [suggestionIndex, setSuggestionIndex] = useState(-1);
+    const [baseInput, setBaseInput] = useState('');
     const inputRef = useRef(null);
     const scrollRef = useRef(null);
 
@@ -36,7 +38,22 @@ export default function Terminal({ onCommand, onClose }) {
         }
     }, [history]);
 
+    const COMMANDS = ['about', 'skills', 'projects', 'learning', 'training', 'certificates', 'education', 'cv', 'contact', 'help', 'clear'];
+
     const handleCommand = (e) => {
+        if (e.key === 'Tab') {
+            e.preventDefault();
+
+            const matches = COMMANDS.filter(cmd => cmd.startsWith(baseInput.toLowerCase()));
+
+            if (matches.length > 0) {
+                const nextIndex = (suggestionIndex + 1) % matches.length;
+                setSuggestionIndex(nextIndex);
+                setInput(matches[nextIndex]);
+            }
+            return;
+        }
+
         if (e.key === 'Enter') {
             const cmd = input.trim().toLowerCase();
             const newHistory = [...history, { type: 'input', content: input }];
@@ -45,7 +62,7 @@ export default function Terminal({ onCommand, onClose }) {
                 setHistory([]);
             } else if (cmd === 'help') {
                 setHistory([...newHistory, { type: 'output', content: HELP_MESSAGE }]);
-            } else if (['about', 'skills', 'projects', 'learning', 'training', 'certificates', 'education', 'cv', 'contact'].includes(cmd)) {
+            } else if (COMMANDS.includes(cmd)) {
                 setHistory([...newHistory, { type: 'output', content: `Executing ${cmd}...` }]);
                 onCommand(cmd);
             } else if (cmd !== '') {
@@ -55,7 +72,21 @@ export default function Terminal({ onCommand, onClose }) {
             }
 
             setInput('');
+            setBaseInput('');
+            setSuggestionIndex(-1);
+            return;
         }
+
+        if (e.key !== 'Shift' && e.key !== 'Control' && e.key !== 'Alt' && e.key !== 'Meta') {
+            setSuggestionIndex(-1);
+        }
+    };
+
+    const handleInputChange = (e) => {
+        const val = e.target.value;
+        setInput(val);
+        setBaseInput(val);
+        setSuggestionIndex(-1);
     };
 
     return (
@@ -103,7 +134,7 @@ export default function Terminal({ onCommand, onClose }) {
                         ref={inputRef}
                         type='text'
                         value={input}
-                        onChange={(e) => setInput(e.target.value)}
+                        onChange={handleInputChange}
                         onKeyDown={handleCommand}
                         className='flex-1 bg-transparent border-none outline-none text-text-primary dark:text-dark-text-primary'
                         spellCheck='false'
