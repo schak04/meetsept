@@ -15,7 +15,7 @@ export default function About() {
                 >
                     <div className="relative shrink-0 w-20 h-20 sm:w-24 sm:h-24">
                         <div className="w-full h-full rounded-full overflow-hidden border-2 border-arch-blue/50 p-1">
-                            <div className="w-full h-full rounded-full overflow-hidden bg-[#161b22]">
+                            <div className="w-full h-full rounded-full overflow-hidden bg-slate-200 dark:bg-[#161b22] transition-colors duration-200">
                                 <img src="/pfp.jpeg" alt="Saptaparno Chakraborty" className="w-full h-full object-cover" />
                             </div>
                         </div>
@@ -86,7 +86,7 @@ export default function About() {
                             transition={{ duration: 0.5, delay: 0.4 }}
                             className='pt-4'
                         >
-                            <div className='p-5 rounded-xl bg-[#161b22]/80 border border-arch-blue/10 shadow-lg shadow-arch-blue/5'>
+                            <div className='p-5 rounded-xl bg-bg-secondary/80 dark:bg-dark-bg-secondary/80 border border-arch-blue/10 shadow-lg shadow-arch-blue/5 transition-colors duration-200'>
                                 <div className='flex items-center gap-2 mb-3'>
                                     <Settings2 className="w-4 h-4 text-arch-blue" />
                                     <h3 className='text-xs font-mono uppercase tracking-widest text-arch-blue'>Current Focus</h3>
