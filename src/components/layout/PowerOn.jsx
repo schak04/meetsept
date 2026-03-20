@@ -31,7 +31,7 @@ export default function PowerOn({ onStart }) {
         let animationFrameId;
         const draw = () => {
             animationFrameId = requestAnimationFrame(draw);
-            
+
             frameCount++;
             if (frameCount % 4 !== 0) return;
 
@@ -84,7 +84,7 @@ export default function PowerOn({ onStart }) {
                 </button>
                 <div className='flex flex-col items-center gap-3'>
                     <motion.div animate={{ opacity: [0.3, 1, 0.3] }} transition={{ duration: 2, repeat: Infinity }} className='flex items-center gap-2'>
-                        <p className='text-[25px] font-mono text-green-500 uppercase tracking-[0.5em] font-bold'>System Ready</p>
+                        <p className='text-lg sm:text-[25px] font-mono text-green-500 uppercase tracking-[0.3em] font-bold'>System Ready</p>
                     </motion.div>
                 </div>
             </motion.div>
