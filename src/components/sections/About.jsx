@@ -44,7 +44,7 @@ export default function About() {
                                 <span className='text-arch-blue font-medium'> full-stack web apps</span>,
                                 <span className='text-arch-blue font-medium'> backend systems</span>,
                                 <span className='text-arch-blue font-medium'> low-level systems</span>, or
-                                <span className='text-arch-blue font-medium'> performance-focused C++ tools</span>.
+                                <span className='text-arch-blue font-medium'> performance-focused C/C++ tools</span>.
                             </span>
                         </motion.p>
 
@@ -57,7 +57,6 @@ export default function About() {
                         >
                             <Gamepad2 className="w-6 h-6 shrink-0 text-purple-400/70 mt-1" />
                             <span>
-                                I like staying stack-agnostic and learning whatever a project demands.
                                 Besides building software, I am also into <span className='text-purple-400 font-medium'>game development</span> as a hobby
                                 because it blends my love for programming and building things with my love
                                 for video games.
@@ -73,8 +72,8 @@ export default function About() {
                         >
                             <Terminal className="w-6 h-6 shrink-0 text-emerald-400/70 mt-1" />
                             <span>
-                                I am big on tech exploration: <span className='text-emerald-400 font-medium'>Arch Linux</span>,
-                                <span className='text-emerald-400 font-medium'> Vim motions</span>, and going down rabbit holes on tools, systems,
+                                Moreover, I'm enthusiastic about Linux. I use <span className='text-emerald-400 font-medium'>Arch Linux</span>,
+                                <span className='text-emerald-400 font-medium'> Vim motions</span>, and enjoy going down rabbit holes on tools, systems,
                                 and new tech.
                             </span>
                         </motion.p>
@@ -86,7 +85,7 @@ export default function About() {
                             transition={{ duration: 0.5, delay: 0.4 }}
                             className='pt-4'
                         >
-                            <div className='p-5 rounded-xl bg-bg-secondary/80 dark:bg-dark-bg-secondary/80 border border-arch-blue/10 shadow-lg shadow-arch-blue/5 transition-colors duration-200'>
+                            <div className='p-5 rounded-xl bg-bg-secondary/80 dark:bg-dark-bg-secondary/80 border border-arch-blue/40 transition-colors duration-200'>
                                 <div className='flex items-center gap-2 mb-3'>
                                     <Settings2 className="w-4 h-4 text-arch-blue" />
                                     <h3 className='text-xs font-mono uppercase tracking-widest text-arch-blue'>Current Focus</h3>

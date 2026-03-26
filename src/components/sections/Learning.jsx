@@ -19,7 +19,7 @@ const TRACKS = [
         label: 'Low-level Development and Systems Programming',
         progress: 25,
         status: 'Exploring',
-        note: 'Practicing C++/C: memory management, pointers, and small systems projects'
+        note: 'Practicing C and C++: memory management, pointers, and small systems projects'
     },
     {
         label: 'System Design',
@@ -37,7 +37,7 @@ const TRACKS = [
         label: 'Arch Linux and the Linux Ecosystem',
         progress: 35,
         status: 'Active',
-        note: 'Getting comfortable with configs, ricing Hyprland, learning the internals'
+        note: 'Daily driving and learning the internals'
     }
 ];
 

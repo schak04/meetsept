@@ -32,7 +32,7 @@ import {
     SiGit,
     SiGithub,
     SiPostman,
-    SiDocker,
+    // SiDocker,
     SiOpenjdk
 } from 'react-icons/si';
 
@@ -73,7 +73,7 @@ const SKILL_GROUPS = [
     {
         title: 'Languages',
         icon: Code2,
-        skills: ['C++', 'C', 'JavaScript', 'TypeScript (Learning)', 'Java', 'Python', 'C# (Learning)']
+        skills: ['C', 'C++', 'JavaScript', 'TypeScript (Learning)', 'Java', 'Python', 'C# (Learning)']
     },
     {
         title: 'Systems and Backend',
