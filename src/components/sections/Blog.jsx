@@ -30,7 +30,7 @@ export default function Blog() {
 
                     <div className='space-y-3'>
                         <h2 className='text-2xl sm:text-3xl font-bold group-hover:text-arch-blue transition-colors'>
-                            schak04.hashnode.dev
+                            SeptLogs
                         </h2>
                         <p className='text-muted text-sm sm:text-base leading-relaxed max-w-xl'>
                             I write about my journey exploring the enormous world of computer science, software engineering, and sharing technical insights I gain along the way.
