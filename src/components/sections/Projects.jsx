@@ -10,7 +10,9 @@ export default function Projects() {
             </h2>
 
             <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
-                {projectsData.map((project, index) => (
+                {projectsData
+                .filter(p => p.status && !p.status.toLowerCase().includes('private'))
+                .map((project, index) => (
                     <motion.div
                         key={project.id}
                         initial={{ opacity: 0, y: 20 }}

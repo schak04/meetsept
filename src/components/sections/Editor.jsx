@@ -11,11 +11,13 @@ import {
 } from 'lucide-react';
 import projectsData from '../../data/projects.json';
 
+const filteredProjects = projectsData.filter(p => p.status && !p.status.toLowerCase().includes('private'));
+
 export default function Editor({ onClose }) {
-    const [selectedId, setSelectedId] = useState(projectsData[0]?.id);
+    const [selectedId, setSelectedId] = useState(filteredProjects[0]?.id);
     const [cmdBuffer, setCmdBuffer] = useState("");
     const [showSplashHint, setShowSplashHint] = useState(true);
-    const selectedProject = projectsData.find(p => p.id === selectedId);
+    const selectedProject = filteredProjects.find(p => p.id === selectedId);
 
     useEffect(() => {
         const timer = setTimeout(() => setShowSplashHint(false), 4000);
@@ -91,7 +93,7 @@ export default function Editor({ onClose }) {
                         <span>projects/</span>
                     </div>
 
-                    {projectsData.map(project => (
+                    {filteredProjects.map(project => (
                         <div
                             key={project.id}
                             onClick={() => setSelectedId(project.id)}
@@ -114,7 +116,7 @@ export default function Editor({ onClose }) {
             <main className='flex-1 flex flex-col min-w-0 bg-bg-primary dark:bg-dark-bg-primary text-text-primary dark:text-dark-text-primary transition-colors'>
                 <div className='flex bg-bg-secondary/50 dark:bg-dark-bg-secondary/50 border-b border-border dark:border-dark-border transition-colors overflow-x-auto custom-scrollbar whitespace-nowrap no-scrollbar relative items-center'>
                     <div className="flex flex-1 overflow-x-auto no-scrollbar">
-                        {projectsData.map(project => (
+                        {filteredProjects.map(project => (
                             <div
                                 key={project.id}
                                 onClick={() => setSelectedId(project.id)}
