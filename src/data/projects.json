@@ -43,13 +43,14 @@
         "title": "Priorify",
         "status": "base version released",
         "startDate": "Jul '25",
-        "description": "A productivity-focused task manager that utilises priority-based ordering to help users focus on what truly matters. Features a clean console interface with a planned transition to a GUI.",
+        "description": "A productivity-focused task manager that utilises priority-based ordering to help users focus on what truly matters. Features a clean console interface that is currently being refined into a modern TUI using FTXUI, with a planned GUI as an alternative interface.",
         "purpose": "To develop a lightweight, distraction-free tool for personal task management that prioritises efficiency and ease of use.",
         "learningOutcome": "Hands-on experience with C++ STL containers, persistent storage using SQLite, and designing user-centric CLI workflows.",
         "tags": [
             "C++",
             "STL",
             "SQLite",
+            "FTXUI",
             "Data Structures",
             "std::priority_queue",
             "std::vector"
