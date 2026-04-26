@@ -32,7 +32,8 @@ import {
     SiGit,
     SiGithub,
     SiPostman,
-    // SiDocker,
+    SiDocker,
+    SiCmake,
     SiOpenjdk
 } from 'react-icons/si';
 
@@ -65,8 +66,9 @@ const SKILL_ICONS = {
     'Neovim': SiNeovim,
     'Git': SiGit,
     'GitHub': SiGithub,
+    'CMake': SiCmake,
     'Postman': SiPostman,
-    // 'Docker (Basics)': SiDocker
+    'Docker': SiDocker
 };
 
 const SKILL_GROUPS = [
@@ -88,12 +90,12 @@ const SKILL_GROUPS = [
     {
         title: 'Database Management',
         icon: Database,
-        skills: ['MongoDB', 'PostgreSQL', 'MySQL', 'SQLite']
+        skills: ['MySQL', 'SQLite', 'MongoDB', 'PostgreSQL']
     },
     {
         title: 'Tools and Environment',
         icon: TerminalIcon,
-        skills: ['Arch Linux', 'Vim', 'Neovim', 'Git', 'GitHub', 'Postman']
+        skills: ['Arch Linux', 'Git', 'GitHub', 'Vim', 'CMake', 'Docker', 'Postman']
     }
 ];
 
