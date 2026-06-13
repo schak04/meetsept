@@ -61,22 +61,75 @@
         }
     },
     {
-        "id": "url-shortener",
-        "title": "URL Shortener",
-        "status": "completed",
-        "startDate": "Jan' 26",
-        "endDate": "Feb' 26",
-        "description": "A simple URL shortening service that generates compact aliases for long URLs.",
-        "purpose": "To understand how URL shorteners work by building a core backend service using Node.js, Express, MongoDB and Mongoose.",
-        "learningOutcome": "Worked with Express routing and middleware, and implemented basic data storage and retrieval using MongoDB.",
+        "id": "s-ls",
+        "title": "s-ls",
+        "status": "ongoing",
+        "startDate": "Jun' 26",
+        "description": "A lightweight reimplementation of the Unix/Linux ls command written in C. Supports directory traversal and file listing through POSIX system interfaces.",
+        "purpose": "To gain hands-on experience with low-level systems programming, file system APIs, and command-line utility development.",
+        "learningOutcome": "Learned to work with POSIX directory handling functions such as opendir(), readdir(), and closedir(), improved understanding of file system concepts, and gained experience debugging C programs with tools like GDB.",
         "tags": [
-            "Node.js",
-            "Express.js",
-            "MongoDB",
-            "Mongoose"
+            "C",
+            "Linux",
+            "POSIX",
+            "Systems Programming"
         ],
         "links": {
-            "github": "https://github.com/schak04/url-shortener",
+            "github": "https://github.com/schak04/s-ls",
+            "demo": null
+        }
+    },
+    {
+        "id": "s-memalloc",
+        "title": "s-memalloc",
+        "status": "ongoing",
+        "startDate": "Mar' 26",
+        "description": "A custom memory allocator written in C that manages heap memory without relying directly on the standard malloc implementation.",
+        "purpose": "To understand how dynamic memory allocation works internally and explore low-level memory management techniques.",
+        "learningOutcome": "Gaining experience with heap management, memory block metadata, free lists, pointer arithmetic, and fragmentation handling while developing a simplified allocator from scratch.",
+        "tags": [
+            "C",
+            "Memory Management",
+            "Low-level Programming",
+            "Systems Programming"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/s-memalloc",
+            "demo": null
+        }
+    },
+    {
+        "id": "s-vector",
+        "title": "s-vector",
+        "status": "ongoing",
+        "startDate": "Apr' 26",
+        "description": "A custom implementation of a dynamic array container inspired by C++ STL's std::vector, being written from scratch in C.",
+        "purpose": "To deepen understanding of data structure internals, memory ownership, and container design.",
+        "learningOutcome": "Gaining hands-on experience with dynamic memory allocation and container programming.",
+        "tags": [
+            "C",
+            "Data Structures",
+            "C++ STL Internals",
+            "Templates"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/s-vector",
+            "demo": null
+        }
+    },
+    {
+        "id": "snake-game",
+        "title": "Snake Game",
+        "status": "ongoing",
+        "startDate": "Feb' 26",
+        "description": "The classic Snake game, currently being built from scratch in C++ to practice low-level programming and game logic.",
+        "purpose": "To get started with low-level game development, and practice implementing game mechanics and logic in C++ without using any game engine or framework.",
+        "learningOutcome": "Gaining hands-on experience with C++ low-level game development, handling user input, implementing game loops, and basic grid-based movement algorithms.",
+        "tags": [
+            "C++"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/snake-game",
             "demo": null
         }
     },
@@ -180,18 +233,22 @@
         }
     },
     {
-        "id": "snake-game",
-        "title": "Snake Game",
-        "status": "ongoing",
-        "startDate": "Feb' 26",
-        "description": "The classic Snake game, currently being built from scratch in C++ to practice low-level programming and game logic.",
-        "purpose": "To get started with low-level game development, and practice implementing game mechanics and logic in C++ without using any game engine or framework.",
-        "learningOutcome": "Gaining hands-on experience with C++ low-level game development, handling user input, implementing game loops, and basic grid-based movement algorithms.",
+        "id": "url-shortener",
+        "title": "URL Shortener",
+        "status": "completed",
+        "startDate": "Jan' 26",
+        "endDate": "Feb' 26",
+        "description": "A simple URL shortening service that generates compact aliases for long URLs.",
+        "purpose": "To understand how URL shorteners work by building a core backend service using Node.js, Express, MongoDB and Mongoose.",
+        "learningOutcome": "Worked with Express routing and middleware, and implemented basic data storage and retrieval using MongoDB.",
         "tags": [
-            "C++"
+            "Node.js",
+            "Express.js",
+            "MongoDB",
+            "Mongoose"
         ],
         "links": {
-            "github": "https://github.com/schak04/snake-game",
+            "github": "https://github.com/schak04/url-shortener",
             "demo": null
         }
     },
