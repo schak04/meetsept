@@ -6,8 +6,8 @@ const TRAININGS = [
         id: 'cipherschools-mern',
         subject: 'Full-Stack Development & DevOps',
         course: 'MERN + DevOps + Cloud Computing',
-        period: 'Feb 2026 - Present',
-        status: 'ongoing',
+        period: 'Feb 2026 - May 2026',
+        status: 'completed',
         tags: ['MERN', 'DevOps', 'Cloud'],
         highlights: [
             'Full-stack web development with the MERN stack from fundamentals to deployment.',
@@ -19,7 +19,7 @@ const TRAININGS = [
     {
         id: 'codequestdsa',
         subject: 'Data Structures & Algorithms',
-        course: 'CodeQuest: DSA Summer Bootcamp - From Basics to Brilliance',
+        course: 'CodeQuest: DSA Summer Bootcamp',
         period: 'Jun 2025 - Jul 2025',
         status: 'completed',
         tags: ['Data Structures', 'Algorithms', 'Problem Solving', 'C++'],
