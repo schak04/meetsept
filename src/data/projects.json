@@ -2,7 +2,8 @@
     {
         "id": "septcrawler",
         "title": "SeptCrawler",
-        "status": "upcoming & currently private",
+        "status": "ongoing",
+        "startDate": "Apr' 26",
         "description": "A custom search engine architecture currently being designed, focused on building a scalable pipeline for web crawling, indexing, and retrieval.",
         "purpose": "To design a multi-threaded crawling system in C++, exploring asynchronous I/O patterns with Node.js for request handling, and structuring efficient indexing and retrieval mechanisms.",
         "learningOutcome": "To deeply understand how search engines work internally by building core components from scratch, instead of relying on existing abstractions.",
@@ -31,8 +32,7 @@
             "Mongoose",
             "JWT",
             "bcrypt",
-            "React",
-            "Tailwind CSS"
+            "React"
         ],
         "links": {
             "github": "https://github.com/schak04/workshophub",
@@ -44,7 +44,6 @@
         "title": "Priorify",
         "status": "base version released",
         "startDate": "Jul' 25",
-        "endDate": "Apr' 26",
         "description": "A productivity-focused task manager that utilises priority-based ordering to help users focus on what truly matters. Features a clean console interface that is currently being refined into a modern TUI using FTXUI.",
         "purpose": "To develop a lightweight, distraction-free tool for personal task management that prioritises efficiency and ease of use.",
         "learningOutcome": "Hands-on experience with C++ STL containers, persistent storage using SQLite, and designing user-centric CLI workflows.",
@@ -52,10 +51,9 @@
             "C++",
             "STL",
             "SQLite",
+            "CMake",
             "FTXUI",
-            "Data Structures",
-            "std::priority_queue",
-            "std::vector"
+            "Data Structures"
         ],
         "links": {
             "github": "https://github.com/schak04/priorify",
@@ -184,11 +182,11 @@
     {
         "id": "snake-game",
         "title": "Snake Game",
-        "status": "ongoing & currently private",
+        "status": "ongoing",
         "startDate": "Feb' 26",
         "description": "The classic Snake game, currently being built from scratch in C++ to practice low-level programming and game logic.",
-        "purpose": "To practice implementing game mechanics and logic in C++ without using any game engine or framework.",
-        "learningOutcome": "Gaining hands-on experience with C++ programming, handling user input, implementing game loops, and basic grid-based movement algorithms.",
+        "purpose": "To get started with low-level game development, and practice implementing game mechanics and logic in C++ without using any game engine or framework.",
+        "learningOutcome": "Gaining hands-on experience with C++ low-level game development, handling user input, implementing game loops, and basic grid-based movement algorithms.",
         "tags": [
             "C++"
         ],
