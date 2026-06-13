@@ -214,7 +214,7 @@ export default function Editor({ onClose }) {
                                                 target="_blank"
                                                 className="btn btn-primary flex items-center justify-center gap-2 font-mono text-xs"
                                             >
-                                                <ExternalLink size={14} className='text-black' /> <span className='text-black'>live view / get app</span>
+                                                <ExternalLink size={14} className='text-black' /> <span className='text-black'>view releases / live view</span>
                                             </a>
                                         )}
                                     </div>
