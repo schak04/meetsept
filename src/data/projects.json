@@ -17,29 +17,6 @@
         }
     },
     {
-        "id": "workshophub",
-        "title": "WorkshopHub",
-        "status": "completed",
-        "startDate": "Nov' 25",
-        "endDate": "Mar' 26",
-        "description": "A full-stack workshop management platform with role-based access control for handling the lifecycle of educational events, from registrations to certificate issuance.",
-        "purpose": "To build a centralised platform that reduces the administrative overhead of organising workshops, providing a seamless experience for both organisers and participants.",
-        "learningOutcome": "Solid understanding of full-stack web development with the MERN stack, implementing secure JWT authentication and bcrypt-based password hashing, managing complex MongoDB relationships, and designing responsive UI with React.js and Tailwind CSS.",
-        "tags": [
-            "Node.js",
-            "Express",
-            "MongoDB",
-            "Mongoose",
-            "JWT",
-            "bcrypt",
-            "React"
-        ],
-        "links": {
-            "github": "https://github.com/schak04/workshophub",
-            "demo": null
-        }
-    },
-    {
         "id": "priorify",
         "title": "Priorify",
         "status": "base version released",
@@ -130,6 +107,29 @@
         ],
         "links": {
             "github": "https://github.com/schak04/snake-game",
+            "demo": null
+        }
+    },
+    {
+        "id": "workshophub",
+        "title": "WorkshopHub",
+        "status": "completed",
+        "startDate": "Nov' 25",
+        "endDate": "Mar' 26",
+        "description": "A full-stack workshop management platform with role-based access control for handling the lifecycle of educational events, from registrations to certificate issuance.",
+        "purpose": "To build a centralised platform that reduces the administrative overhead of organising workshops, providing a seamless experience for both organisers and participants.",
+        "learningOutcome": "Solid understanding of full-stack web development with the MERN stack, implementing secure JWT authentication and bcrypt-based password hashing, managing complex MongoDB relationships, and designing responsive UI with React.js and Tailwind CSS.",
+        "tags": [
+            "Node.js",
+            "Express",
+            "MongoDB",
+            "Mongoose",
+            "JWT",
+            "bcrypt",
+            "React"
+        ],
+        "links": {
+            "github": "https://github.com/schak04/workshophub",
             "demo": null
         }
     },
