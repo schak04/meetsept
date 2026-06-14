@@ -45,8 +45,8 @@ const INTERESTS = [
     {
         area: 'Game Development',
         icon: Flame,
-        description: 'Working on hobby projects in Unity using C#. Learned basic Godot scripting in GDScript to experiment with game mechanics.',
-        tags: ['Unity', 'C#', 'Game Dev']
+        description: 'Getting started with 2D low-level game development with C++ and Raylib/SFML, with a focus on understanding how games and engines work under the hood. Also experimented with Unity (C#) and Godot (GDScript) for some exposure to game scripting.',
+        tags: ['Game Dev', 'C++', 'Raylib/SFML', 'Unity/C#', 'Godot/GDScript']
     },
     {
         area: 'Compiler and Language Theory',
