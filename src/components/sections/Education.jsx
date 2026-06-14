@@ -9,22 +9,6 @@ const EDUCATION = [
         period: "Aug' 23 - Present",
         metrics: "CGPA: 7.87",
         type: "university"
-    },
-    {
-        institution: "Railway H.S. School",
-        location: "West Bengal, India",
-        degree: "Higher Secondary (XII)",
-        period: "Apr' 22 - Mar' 23",
-        metrics: "Percentage: 78",
-        type: "school"
-    },
-    {
-        institution: "Railway H.S. School",
-        location: "West Bengal, India",
-        degree: "Secondary (X)",
-        period: "Apr' 20 - Mar' 21",
-        metrics: "Percentage: 89",
-        type: "school"
     }
 ];
 
