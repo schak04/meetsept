@@ -95,7 +95,7 @@ const SKILL_GROUPS = [
     {
         title: 'Tools and Environment',
         icon: TerminalIcon,
-        skills: ['Arch Linux', 'Git', 'GitHub', 'Vim', 'CMake', 'Docker', 'Postman']
+        skills: ['Arch Linux', 'Git', 'GitHub', 'Vim', 'Neovim', 'CMake', 'Docker', 'Postman']
     }
 ];
 
