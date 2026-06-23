@@ -4,9 +4,9 @@
         "title": "SeptCrawler",
         "status": "ongoing",
         "startDate": "Apr' 26",
-        "description": "A custom search engine architecture currently being designed, focused on building a scalable pipeline for web crawling, indexing, and retrieval.",
-        "purpose": "To design a multi-threaded crawling system in C++, exploring asynchronous I/O patterns with Node.js for request handling, and structuring efficient indexing and retrieval mechanisms.",
-        "learningOutcome": "To deeply understand how search engines work internally by building core components from scratch, instead of relying on existing abstractions.",
+        "description": "A custom search engine being built from scratch using C++ and Node.js, focused on implementing core components such as crawling, indexing, and retrieval pipelines.",
+        "purpose": "To understand and build the internal architecture of a search engine by implementing core systems including web crawling, document processing, indexing, and query retrieval without relying on existing search frameworks.",
+        "learningOutcome": "Developing deeper understanding of information retrieval systems, data structures, backend architecture, concurrency, and systems programming by building a (traditional first) search engine from the ground up.",
         "tags": [
             "C++",
             "Node.js"
